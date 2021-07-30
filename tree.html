@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+{% for item in site.data.ymlTest %}
+    {% for sub in item.children %}
+        {% for pdf in sub.conspects %}
+        {{ sub.title }}<br>
+            {{ pdf.title }}, {{ pdf.id }}
+            <hr>
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+
+
+{% for semester in site.data.conspectsTree %}
+	{{ semester.children }}
+    {% for subject in semester%}
+        {% for pdf in subject %}
+            {% for pdf1 in pdf %}
+            {% for pdf2 in pdf1 %}
+                {{ pdf2 }}
+                ~e~
+            {% endfor %}
+                ~d~
+            {% endfor %}
+         ~c~
+        {% endfor %}
+        ~a~
+    {% endfor %}
+    ~dd~
+    <hr>
+{% endfor %}
+

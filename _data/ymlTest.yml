@@ -1,0 +1,21 @@
+- title: '7 Semester'
+  children:
+    - title: subj1 
+      conspects:
+        - title: cons1.pdf
+          id: CONSID1
+    - title: subj2 
+      conspects:
+        - title: cons2.pdf
+          id: CONSID2
+
+- title: '6 Semester'
+  children:
+    - title: subj1 
+      conspects:
+        - title: cons1.pdf
+          id: CONSID1
+    - title: subj2 
+      conspects:
+        - title: cons2.pdf
+          id: CONSID2

@@ -52,4 +52,4 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-header_pages: About  
+# header_pages: About  
