@@ -1,0 +1,99 @@
+.text-box {
+    width: 90%;
+    color: #000;
+    text-align: center;
+}
+.text-box h1 {
+    font-size: 62px;
+}
+
+.text-box p {
+    margin: 10px 0 40px;
+    font-size: 14px;
+}
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    border: 1px solid  black;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover {
+    border: 1px solid #000;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+@media(max-width: 770px) {
+    .text-box h1 {
+        font-size: 25px;
+    }
+}
+
+
+/*----------- --------------*/
+.row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.courses-nav {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 050px;
+}
+.semesters {
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: center;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+.sem-btn {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    background: #ffe0e0;
+    padding: 10px; 
+    border-radius: 10px;
+    cursor: pointer;
+}
+.semesters h3 {
+    font-weight: 600;
+    margin: 10px;
+    text-align: center;
+}
+.semesters ul {
+    text-align: center;
+    list-style: none;
+    color: #777;
+}
+.semesters p {
+    width: 100%;
+    margin: 15px 0;
+}
+.semesters ul li {
+    margin: 15px 0;
+}
+
+.sem-btn:hover {
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+
+@media(max-width: 750px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+
