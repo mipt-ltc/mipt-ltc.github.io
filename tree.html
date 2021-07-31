@@ -2,33 +2,39 @@
 layout: default
 ---
 
-{% for item in site.data.ymlTest %}
-    {% for sub in item.children %}
-        {% for pdf in sub.conspects %}
-        {{ sub.title }}<br>
-            {{ pdf.title }}, {{ pdf.id }}
-            <hr>
-        {% endfor %}
-    {% endfor %}
+{% for note in site.data.test %}
+    <div id="{{ note.id }}"></div>
 {% endfor %}
 
 
-{% for semester in site.data.conspectsTree %}
-	{{ semester.children }}
-    {% for subject in semester%}
-        {% for pdf in subject %}
-            {% for pdf1 in pdf %}
-            {% for pdf2 in pdf1 %}
-                {{ pdf2 }}
-                ~e~
-            {% endfor %}
-                ~d~
-            {% endfor %}
-         ~c~
-        {% endfor %}
-        ~a~
-    {% endfor %}
-    ~dd~
-    <hr>
-{% endfor %}
+<p id="ttest">
+ddd
+</p>
 
+<script>
+var noteElement;
+function addFilteredNotes() {
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var semester = url.searchParams.get("semester");
+    var year = url.searchParams.get("year");
+    var lecturer = url.searchParams.get("lecturer");
+
+    {% for note in site.data.test %}
+
+        if ((semester == null || {{ note.semester }} == semester) &&
+            (year == null || {{ note.year }} == year) &&
+            (lecturer == null || '{{ note.lecturer }}'.includes(lecturer))) {
+            noteElement = document.getElementById('{{ note.id }}');
+            noteElement.innerHTML = '{{note.year}}, {{note.semester}}';
+            console.log('yay');
+        }
+            noteElement = document.getElementById('{{ note.id }}');
+            //noteElement.innerHTML = '{{note.lecturer}}~' + lecturer + '~';
+        //console.log('{{ note.lecturer }}'.includes(lecturer));
+        console.log(lecturer == null || '{{ note.lecturer }}'.includes(lecturer));
+    {% endfor %}
+}
+</script>
+
+<body onload="addFilteredNotes();">

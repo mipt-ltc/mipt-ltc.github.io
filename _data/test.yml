@@ -1,0 +1,41 @@
+- semester: 3
+  subject: "Calculus"
+  id: "alsdfjalsd1"
+  year: "2019"
+  lecturer: "Lukshov"
+
+- semester: 2
+  subject: "Calculus"
+  id: "alsdfjalsd2"
+  year: "2019"
+  lecturer: "Lukshov"
+
+- semester: 1
+  subject: "Calculus"
+  id: "alsdfjalsd3"
+  year: "2019"
+  lecturer: "Lukshov"
+
+- semester: 5
+  subject: "Calculus"
+  id: "alsdfjalsd4"
+  year: "2019"
+  lecturer: "Lukshov"
+
+- semester: 6
+  subject: "Calculus"
+  id: "alsdfjalsd5"
+  year: "2019"
+  lecturer: "Lukshov"
+
+- semester: 3
+  subject: "Calculus"
+  id: "alsdfjalsd6"
+  year: "2019"
+  lecturer: "Lukshov"
+
+- semester: 2
+  subject: "Calculus"
+  id: "alsdfjalsd7"
+  year: "2019"
+  lecturer: "Lukshov"
