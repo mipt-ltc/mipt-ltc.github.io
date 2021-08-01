@@ -48,19 +48,18 @@ def addNewAliases(lecturersSet):
     with open("../_data/lecturers.yml", "r") as f:
         try:
             database = yaml.safe_load(f.read())
-            print(database)
         except yaml.YAMLError as exc:
             print(exc)
+    print('\n' + '='*10 + ' Checking if lecturers in database. ' + '='*10)
     for name in lecturersSet:
-        if isNameInDatabase(name, database):
-            3+1
+        if not isNameInDatabase(name, database):
+            print('"' + name + '" is not in database.')
+            # print('Whant to add this name? [yn]')
 
 def isNameInDatabase(name, database):
     for aliasesStr in database:
-        if ('|' + name + '|') not in aliasesStr:
-            print('"' + name + '" is not in database.')
-            # print('Whant to add this name? [yn]')
-            print(name + " " + aliasesStr)
+        if ('|' + name + '|') in aliasesStr:
+            return True
     return False
     
 
@@ -72,6 +71,7 @@ def getSetOfSimmilarNames(name, database):
     return SimNames
     
 def main():
+    print('\n' + '='*10 + ' Extracting lecturers names form the Tree. ' + '='*10)
     lecturersSet = getLecturersSet()
     addNewAliases(lecturersSet)
 
