@@ -46,27 +46,35 @@ def printNamingWarning(semester, subject, note):
 
 def addNewAliases(lecturersSet):
     with open("../_data/lecturers.yml", "r") as f:
-        database = f.read()
         try:
-            print(yaml.safe_load(f))
-            print(yaml.safe_load(database))
+            database = yaml.safe_load(f.read())
+            print(database)
         except yaml.YAMLError as exc:
             print(exc)
     for name in lecturersSet:
-        if ('|' + name + '|') not in database:
-            print('"' + name + '" is not in database. Whant to add this name?')
+        if isNameInDatabase(name, database):
+            3+1
 
 def isNameInDatabase(name, database):
+    for aliasesStr in database:
+        if ('|' + name + '|') not in aliasesStr:
+            print('"' + name + '" is not in database.')
+            # print('Whant to add this name? [yn]')
+            print(name + " " + aliasesStr)
     return False
     
 
-def getSetOfSimmilarNames():
+def getSetOfSimmilarNames(name, database):
     SimNames = set()
+    for aliasesStr in database:
+        3+1
+        # TODO: complete this funk
     return SimNames
     
 def main():
     lecturersSet = getLecturersSet()
     addNewAliases(lecturersSet)
+
 if __name__ == "__main__":
     main()
 
