@@ -1,4 +1,6 @@
 import yaml
+import re
+
 from updateLecturersAndSubjects import getDatabase 
 from updateLecturersAndSubjects import printSubstep 
 
@@ -16,7 +18,7 @@ def handleWantToAddInput(item):
 
 def handleAliasesInput():
     print('list aliases, separated by comma:')
-    aliases = input().lower()
+    aliases = getNewAliasesStr(input())
     print('Do you whant to add "' + aliases +'"? [y(es)/r(etry)/n(ot)]')
 
     while True:
@@ -26,6 +28,15 @@ def handleAliasesInput():
     if ans == 'r': return handleAliasesInput()
     else: return {'ans': ans, 'aliases': aliases}
 
+def getNewAliasesStr(rawStr):
+    newAliasesStr = '|'
+    for alias in rawStr.split(','):
+        newAlias = alias.lower().strip()
+        if newAlias != '':
+            newAliasesStr += newAlias + '|'
+    print(newAliasesStr)
+    return newAliasesStr
+
 def addNewNames(file):
     if getDatabase(file) == None:
         return
@@ -34,10 +45,8 @@ def addNewNames(file):
         if ans == 'n': continue
         ans = handleAliasesInput()
         if ans['ans'] == 'n': continue
-
-        newAliases = '|' + item['name'] + '|' + ('|').join(ans['aliases'].split(',')) + '|'
         with open('../_data/subjects.yml', 'a') as f:
-            print('- "' + newAliases + '"', file=f)
+            print('- "' + ans['aliases'] + '"', file=f)
         printSubstep(' new aliases successfully added')
 
 def main():
