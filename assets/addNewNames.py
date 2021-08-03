@@ -1,13 +1,12 @@
 import yaml
-import re
 
 from updateLecturersAndSubjects import getDatabase 
 from updateLecturersAndSubjects import printSubstep 
 
 def handleWantToAddInput(item):
     printSubstep('-'*10)
-    print('whant to add "' + item['name'] + '" in subjects database? [y/n]')
-    print('occurre(s):')
+    print('Whant to add "' + item['name'] + '" in subjects database? [y/n]')
+    print('Occurrence(s):')
     for url in item['url']:
         print(url)
     while True:
