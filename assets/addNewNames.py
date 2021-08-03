@@ -51,8 +51,14 @@ def addNewNames(file):
             print('- "' + ans['aliases'] + '"', file=f)
         printSubstep(' new aliases successfully added')
 
-def addLoverAndUpperCaseLecturers():
-    with open('../_data/lecturers.yml', 'r') as f:
+def addInSetName(name, namesSet, DBtype):
+    if DBtype == 'lecturers':
+        namesSet.add(name.capitalize())
+    namesSet.add(name.lower())
+
+
+def standardizeNamesAndSort(DBtype):
+    with open(DB_FILES[DBtype], 'r') as f:
         lines = f.readlines()
     finalLines = ''
     for line in sorted(lines):
@@ -61,21 +67,20 @@ def addLoverAndUpperCaseLecturers():
         namesSet = set()
         for name in names:
             assert len(name) > 0
-            namesSet.add(name.capitalize())
-            namesSet.add(name.lower())
+            addInSetName(name, namesSet, DBtype)
         finalLines += '- "|'
         for name in sorted(namesSet):
             finalLines += name + '|'
         finalLines += '"\n'
-    with open(DB_FILES['lecturers'], 'w') as f:
+    with open(DB_FILES[DBtype], 'w') as f:
         f.write(finalLines)
-        print(finalLines)
 
 def main():
     print(DB_FILES)
     addNewNames(DB_FILES['newSubjects'])
     addNewNames(DB_FILES['newLecturers'])
-    addLoverAndUpperCaseLecturers()
+    standardizeNamesAndSort('subjects')
+    standardizeNamesAndSort('lecturers')
 
 if __name__ == "__main__":
     main()
