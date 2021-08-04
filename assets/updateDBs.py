@@ -182,7 +182,7 @@ def createSubjectEntry(subject, occurrences, db):
     for note in occurrences:
         semesters.add(note['semester'])
     assert len(semesters) > 0
-    semesters = str(min(semesters)) + '-' + str(max(semesters))
+    semesters = ','.join(sorted(semesters))
     aliases = getAliasesStr(subject, db, occurrences[0]['subjectName']).split('|') 
     assert len(aliases) > 0
     title = (aliases[0] if len(aliases) == 1 else aliases[1])

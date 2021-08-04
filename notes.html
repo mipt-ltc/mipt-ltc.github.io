@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="assets/js/script.js"></script>
+
+<section id="search" class="raw">
+    <div class="search-input">
+        <label for="semester">Semester</label><br>
+        <input id="semester" type="text" value="" name="semester" placeholder="1 or 2,3">
+    </div>
+    <div class="search-input">
+        <label for="subject">Subject</label><br>
+        <input id="subject" type="text" value="" name="subject" placeholder="матлог">
+    </div>
+    <div class="search-input">
+        <label for="year">Year</label><br>
+        <input id="year" type="text" value="" name="year" placeholder="2020">
+    </div>
+    <div class="search-input">
+        <label for="lecturer">Lecturer</label><br>
+        <input id="lecturer" type="text" value="" name="lecturer" placeholder="Дашад">
+    </div>
+    <span>
+    <input type="submit" value="Search" onclick="search()">
+    <input type="submit" value="Clear" onclick="clearFields()">
+    </span>
+</section>
+
+{% for note in site.data.test %}
+    <div id="{{ note.id }}"></div>
+{% endfor %}
+
+<p id="ttest">
+ddd
+</p>
+
+
+<body onload="addFilteredNotes();">
