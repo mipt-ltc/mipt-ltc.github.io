@@ -9,17 +9,17 @@ title: Home
 <script src="https://rawgit.com/farzher/fuzzysort/master/fuzzysort.js"></script>
 
 
-<section class="ltc-hat">
-    <div class="text-box">
-        <h1>Клуб Теха Лекций</h1>
-        <p>Студенческий \LaTeX фан-клуб. Тут можно найти PDF конспекты лекций, ведущихся в МФТИ.
-        </p>
-        <a href="/about" class="sem-btn">Подробнее о нас =)</a>
+<section id="ltc-hat">
+    <h1>Клуб Теха Лекций</h1>
+    <p>Студенческий \LaTeX фан-клуб. Тут можно найти PDF конспекты лекций, ведущихся в МФТИ.
+    </p>
+    <div>
+    <a href="/about" class="sem-btn">Подробнее о нас =)</a>
     </div>
  </section>
 
 <!-- home page -->
-<section class="courses-nav">
+<section id="courses-nav">
     <h1>Наши конспекты</h1>
 
     <div class="row"> 
@@ -45,7 +45,6 @@ title: Home
         </div>
     </div>
 </section>
-
 
 
 <section id="search" class="raw">
@@ -76,9 +75,4 @@ title: Home
     <div id="{{ note.id }}"></div>
 {% endfor %}
 </section>
-
-<p id="ttest">
-ddd
-</p>
-
 

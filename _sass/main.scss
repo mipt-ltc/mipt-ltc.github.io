@@ -1,13 +1,13 @@
-.text-box {
+#ltc-hat {
     width: 90%;
     color: #000;
     text-align: center;
 }
-.text-box h1 {
+#ltc-hat h1 {
     font-size: 62px;
 }
 
-.text-box p {
+#ltc-hat p {
     margin: 10px 0 40px;
     font-size: 14px;
 }
@@ -15,7 +15,7 @@
     display: inline-block;
     text-decoration: none;
     color: black;
-    border: 1px solid  black;
+    border: 1px solid black;
     padding: 12px 34px;
     font-size: 13px;
     background: transparent;
@@ -43,7 +43,7 @@
     display: flex;
     justify-content: space-between;
 }
-.courses-nav {
+#courses-nav {
     width: 80%;
     margin: auto;
     text-align: center;
@@ -68,6 +68,9 @@
     border-radius: 10px;
     cursor: pointer;
 }
+.sem-btn:hover {
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
 .semesters h3 {
     font-weight: 600;
     margin: 10px;
@@ -86,10 +89,6 @@
     margin: 15px 0;
 }
 
-.sem-btn:hover {
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
-}
-
 @media(max-width: 750px) {
     .row {
         flex-direction: column;
@@ -97,15 +96,35 @@
 }
 
 /* ---------- search ------------ */
+#search span {
+    white-space: nowrap;
+}
+#search {
+    text-align: center;
+}
+
 .search-input {
     text-align: center;
     display: inline-block;
 }
-#search span {
-    white-space: nowrap;
-}
 
-.ib {
-  display: inline-block;
-  border: 1px solid #ccc;
+.note-btn {
+    display: block;
+    box-sizing: border-box;
+    background: #ffe0e0;
+    padding: 10px; 
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    max-width: 350px;
+}
+.note-btn:hover {
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+#notes-list {
+    text-align: center;
+}
+#notes-list div {
+    margin: 10px;
+    display: inline-block;
 }
