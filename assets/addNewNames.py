@@ -1,4 +1,5 @@
 import yaml
+from fuzzywuzzy import fuzz
 
 from updateDBs import getDatabase 
 from updateDBs import printSubstep 
@@ -6,79 +7,90 @@ from updateDBs import DB_FILES
 ALIASES_STR_BEGIN = 4
 ALIASES_STR_END = -3
 
-def handleWantToAddInput(item):
+def printWantToAddMessage(item):
     printSubstep('-'*10)
     print('Whant to add "' + item['name'] + '" in subjects database? [y/n]')
     print('Occurrence(s):')
     for url in item['url']:
         print(url)
+
+def handleWantToAddInput(item):
+    printWantToAddMessage(item)
     while True:
         ans = input()
         if ans == 'y' or ans == 'n':
             break
     return ans
 
-def handleAliasesInput():
-    print('list aliases, separated by comma:')
-    aliases = getNewAliasesStr(input())
+def handleAreYouSureInput(aliases, DBtype):
+    if aliases == None:
+        print("Error: invalid input. Please repeat.")
+        return handleAliasesInput(DBtype)
     print('Do you whant to add "' + aliases +'"? [y(es)/r(etry)/n(ot)]')
-
-    while True:
+    ans = input()
+    while ans != 'y' and ans != 'n' and ans != 'r':
         ans = input()
-        if ans == 'y' or ans == 'n' or ans == 'r':
-            break
-    if ans == 'r': return handleAliasesInput()
-    else: return {'ans': ans, 'aliases': aliases}
+    if ans == 'r': 
+        return handleAliasesInput(DBtype)
+    else: 
+        return {'ans': ans, 'aliases': aliases}
 
-def getNewAliasesStr(rawStr):
-    newAliasesStr = '|'
-    for alias in rawStr.split(','):
-        newAlias = alias.lower().strip()
-        if newAlias != '':
-            newAliasesStr += newAlias + '|'
-    print(newAliasesStr)
-    return newAliasesStr
 
-def addNewNames(file):
+def handleAliasesInput(DBtype):
+    print('Please list aliases, separated by comma:')
+    aliases = getStandardizeAliasesStrOrNull(
+             '|' + '|'.join(input().split(',')) + '|', DBtype)
+    return handleAreYouSureInput(aliases, DBtype)
+
+def addInSetName(name, namesSet, DBtype):
+    if name.strip() == '':
+        return
+    if DBtype == 'lecturers':
+        namesSet.add(name.strip().capitalize())
+    namesSet.add(name.strip().lower())
+
+def getStandardizeAliasesStrOrNull(aliasesStr, DBtype):
+    aliases = aliasesStr.split('|')
+    namesSet = set()
+    for name in aliases:
+        addInSetName(name, namesSet, DBtype)
+    if len(namesSet) == 0:
+
+        return None
+    standardizedStr = '|'
+    for name in sorted(namesSet):
+        standardizedStr += name + '|'
+    return standardizedStr
+
+def addNewNames(file, DBtype):
     if getDatabase(file) == None:
         return
     for item in getDatabase(file):
         ans = handleWantToAddInput(item)
-        if ans == 'n': continue
-        ans = handleAliasesInput()
-        if ans['ans'] == 'n': continue
+        if ans == 'n': 
+            continue
+        ans = handleAliasesInput(DBtype)
+        if ans['ans'] == 'n' or ans['aliases'] == None: 
+            continue
         with open(DB_FILES['subjects'], 'a') as f:
             print('- "' + ans['aliases'] + '"', file=f)
         printSubstep(' new aliases successfully added')
-
-def addInSetName(name, namesSet, DBtype):
-    if DBtype == 'lecturers':
-        namesSet.add(name.capitalize())
-    namesSet.add(name.lower())
-
 
 def standardizeNamesAndSort(DBtype):
     with open(DB_FILES[DBtype], 'r') as f:
         lines = f.readlines()
     finalLines = ''
     for line in sorted(lines):
-        assert len(lines) > 0
-        names = line[ALIASES_STR_BEGIN:ALIASES_STR_END].split('|')
-        namesSet = set()
-        for name in names:
-            assert len(name) > 0
-            addInSetName(name, namesSet, DBtype)
-        finalLines += '- "|'
-        for name in sorted(namesSet):
-            finalLines += name + '|'
-        finalLines += '"\n'
+        assert len(line) > 0
+        aliasesStr = line[ALIASES_STR_BEGIN:ALIASES_STR_END]
+        finalLines += '- "' +\
+            getStandardizeAliasesStrOrNull(aliasesStr, DBtype)+ '"\n'
     with open(DB_FILES[DBtype], 'w') as f:
         f.write(finalLines)
 
 def main():
-    print(DB_FILES)
-    addNewNames(DB_FILES['newSubjects'])
-    addNewNames(DB_FILES['newLecturers'])
+    addNewNames(DB_FILES['newSubjects'], 'subjects')
+    addNewNames(DB_FILES['newLecturers'], 'lecturers')
     standardizeNamesAndSort('subjects')
     standardizeNamesAndSort('lecturers')
 
