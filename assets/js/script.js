@@ -18,25 +18,49 @@ function getDriveUrl(noteId) {
 function isIncludes(noteVal, userVal) {
     if (userVal == null || userVal == '') {
         return true;
-    } else {
-        return userVal.includes(noteVal);
     }
+    return userVal.includes(noteVal);
+}
+function isIncludesLec(noteVal, userVal) {
+    if (userVal == null || userVal == '') {
+        return true;
+    }
+    return noteVal.includes(userVal);
 }
 function getFuzzyMatchScore(noteVal, userVal) {
     if (userVal == null || userVal == '') {
         return 0;
-    } else {
-        return userVal.includes(noteVal);
     }
-}
-function getNoteHTML(id, sem, subj, year, lec) {
-    return '<div><a href="' + getDriveUrl(id) + '" class="note-btn">' +
-        'Sem: ' + sem + 
-        '<hr>Subj: ' + subj + 
-        '<hr>Year: ' + year +
-        '<hr>Lec: ' + lec + '</a></div>';
+    var results = fuzzysort.go(userVal, getAliasesList(noteVal));
+    return (results.length == 0 
+        ? Number.NEGATIVE_INFINITY : results[0]['score']);
 }
 
+function getName(aliasesStr) {
+    return capitalizeFirstLetter(getAliasesList(aliasesStr)[0]);
+}
+function getNoteHTML(note, id, sem, subj, year, lec) {
+    return '<div><a href="' + getDriveUrl(note['id']) + '" class="note-btn">' +
+        'Sem: ' + note['semester'] + 
+        '<hr>Subj: ' + getName(note['subject']) + 
+        '<hr>Year: ' + note['year'] +
+        '<hr>Lec: ' + getName(note['lecturer']) + '</a></div>';
+}
+
+function getNotesSectionHTML(notesList) {
+    notesList.sort(function(first, second) {
+        return second[0] - first[0];
+    });
+    var notesSectionHTML = '';
+    notesList.forEach(function(item, index, array) {
+        notesSectionHTML += item[1];
+    })
+    return notesSectionHTML;
+}
+
+function getAliasesList(str) {
+    return str.slice(1,-1).split('|');
+}
 function search() {
     var semester = document.getElementById('semester').value;
     var subject = document.getElementById('subject').value;
@@ -48,27 +72,13 @@ function search() {
         console.assert('{{ note.semester }}'.length == 1);
         if (isIncludes('{{ note.semester}}', semester) &&
             isIncludes('{{ note.year }}', year) &&
-            (lecturer == null || '{{ note.lecturer }}'.includes(lecturer))) {
-            let aliases = {'subjects': '{{ note.subject }}'.slice(1, -1).split('|'),
-                'lecturers': '{{ note.lecturer }}'.slice(1, -1).split('|')};
-            results = fuzzysort.go(subject, aliases['subjects'])
-            maxScore = Number.NEGATIVE_INFINITY
-            results.forEach(function(item, index, array) {
-                maxScore < item['score'] ? maxScore = item['score'] : 0;
-            })
+            isIncludesLec('{{ note.lecturer}}', lecturer)) {
+            var maxScore = getFuzzyMatchScore('{{ note.subject }})', subject)
+            var noteHTML = getNoteHTML({{ note | jsonify }});
             notesList.push([maxScore, noteHTML]);
-            var noteHTML = getNoteHTML('{{ note.id }}', '{{ note.semester }}', 
-            capitalizeFirstLetter(aliases['subjects'][0]), '{{ note.year }}',
-            aliases['lecturers'][0]);
         } 
     {% endfor %}
-    notesList.sort(function(first, second) {
-        return second[0] - first[0];
-    });
-    var notesListSection = document.getElementById('notes-list');
-    notesListSection.innerHTML = '';
-    notesList.forEach(function(item, index, array) {
-        notesListSection.innerHTML += item[1];
-    })
+    document.getElementById('notes-list').innerHTML = 
+        getNotesSectionHTML(notesList);
 }
 
