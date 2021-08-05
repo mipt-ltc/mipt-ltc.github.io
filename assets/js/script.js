@@ -13,9 +13,6 @@ function clearFields() {
 function clearSubjects() {
     document.getElementById('subjects-list').innerHTML = '';
 }
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 function getDriveUrl(noteId) {
     return 'https://drive.google.com/file/d/' + noteId;
 }
@@ -35,20 +32,17 @@ function getFuzzyMatchScore(noteVal, userVal) {
     if (userVal == null || userVal == '') {
         return 0;
     }
-    var results = fuzzysort.go(userVal, getAliasesList(noteVal));
+    var results = fuzzysort.go(userVal, noteVal.split('|'));
     return (results.length == 0 
         ? Number.NEGATIVE_INFINITY : results[0]['score']);
 }
 
-function getName(aliasesStr) {
-    return capitalizeFirstLetter(getAliasesList(aliasesStr)[0]);
-}
 function getNoteHTML(note, id, sem, subj, year, lec) {
     return '<div><a href="' + getDriveUrl(note['id']) + '" class="note-btn">' +
         'Sem: ' + note['semester'] + 
-        '<hr>Subj: ' + getName(note['subject']) + 
+        '<hr>Subj: ' + note['subjectTitle'] + 
         '<hr>Year: ' + note['year'] +
-        '<hr>Lec: ' + getName(note['lecturer']) + '</a></div>';
+        '<hr>Lec: ' + note['lecturerTitle'] + '</a></div>';
 }
 
 function getNotesSectionHTML(notesList) {
@@ -79,9 +73,6 @@ function getNotesSectionHTML(notesList) {
     return notesSectionHTML;
 }
 
-function getAliasesList(str) {
-    return str.slice(1,-1).split('|');
-}
 function getUserInput() {
     return {'semester': document.getElementById('semester').value,
         'subject': document.getElementById('subject').value,
@@ -114,10 +105,9 @@ function getSubjectSectionHTML(subjectsList) {
     subjecstSectionHTML = ''
     subjectsList.forEach(function(item, index, array) {
         subjecstSectionHTML += '<div class="note-btn" onclick="showNotes(' +
-            "'" + item + "'" + ')">' + capitalizeFirstLetter(item) + '</div>';
+            "'" + item + "'" + ')">' + item + '</div>';
  
     })
-
     subjecstSectionHTML += 
        '<br><input type="submit" value="Clear" class="button"' + 
         'onclick="clearSubjects()" style="margin-bottom: 15px;">';

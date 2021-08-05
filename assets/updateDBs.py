@@ -178,12 +178,12 @@ def hasCyrillic(text):
 
 def extractOneName(aliasesStr):
     aliases = aliasesStr.split('|')
-    for name in aliasesStr:
+    for name in aliases:
         if hasCyrillic(name):
-            return name
+            return name.capitalize() 
     assert len(aliases) > 0
     print('Warning: "' + aliasesStr +'" have no russian alias')
-    return aliases[0]
+    return aliases[0].capitalize()
 
 def createNoteEntry(note, DBs):
     subjectsStr = getAliasesStr(note['subjectName'], DBs['subjects'], 
@@ -223,6 +223,7 @@ def generateSubjectsDB(subjectsDic, db):
         subjectsListDB += createSubjectEntry(subject, occurrences, db)
     with open(DB_FILES['subjectsList'], 'w+') as f:
         print(subjectsListDB, file=f)
+
 def generateDBs(notesList, namesDics):
     printStep(' generating DBs ')
     generateNotesDB(notesList, getDBs())
