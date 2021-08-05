@@ -36,10 +36,10 @@ def handleAreYouSureInput(aliases, DBtype):
         return {'ans': ans, 'aliases': aliases}
 
 
-def handleAliasesInput(DBtype):
+def handleAliasesInput(item, DBtype):
     print('Please list aliases, separated by comma:')
     aliases = getStandardizeAliasesStrOrNull(
-             '|' + '|'.join(input().split(',')) + '|', DBtype)
+        '|'.join([item['name']] + input().split(',')) + '|', DBtype)
     return handleAreYouSureInput(aliases, DBtype)
 
 def addInSetName(name, namesSet, DBtype):
@@ -69,7 +69,7 @@ def addNewNames(file, DBtype):
         ans = handleWantToAddInput(item)
         if ans == 'n': 
             continue
-        ans = handleAliasesInput(DBtype)
+        ans = handleAliasesInput(item, DBtype)
         if ans['ans'] == 'n' or ans['aliases'] == None: 
             continue
         with open(DB_FILES['subjects'], 'a') as f:

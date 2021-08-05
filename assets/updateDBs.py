@@ -18,7 +18,7 @@ badNamedNotesAndSubjects = list()
 newNames = {'subjects': dict(), 'lecturers': dict()}
 
 def getNotesList():
-    printStep('='*10 + ' Extracting notes form the driveTree. ' + '='*10)
+    printStep(' Extracting notes form the driveTree. ')
     notesList = list()
     for semester in getDatabase(TREE_FILE).values():
         for subject in semester["children"].values():
@@ -38,11 +38,12 @@ def handleNulls(note):
         printNamingWarning(note, 'subject')
     if note['year'] == None:
         printNamingWarning(note, 'note year')
-    if note['lecturer'] == None:
+    if note['lecturer'] == None or len(note['lecturer']) < MIN_TITLE_LENGTH:
         printNamingWarning(note, 'note lecturer')
 
 def printNamingWarning(note, item):
-    messageHeader = '-'*10 + ' suspicious naming in ' + item.upper() + ' detected ' + '-'*10 + '\n'
+    messageHeader = getSubstepMessage(' suspicious naming in ' + item.upper() +
+            ' detected ') + '\n'
     messageBody = 'path: ' + note['semester'] + '/' +\
             note['subject'] + '/' + note['title'] + '\n' +\
             'url: ' + getNoteUrl(note['id']) + '\n'
@@ -79,8 +80,7 @@ def getYearOrNull(year):
 
 def getLecturerOrNull(lecturer):
     lecSplit = lecturer.split('.')
-    if len(lecSplit) == 2 and \
-        len(lecSplit[0]) >= MIN_TITLE_LENGTH and lecSplit[1] == 'pdf':
+    if len(lecSplit) == 2 and lecSplit[1] == 'pdf':
         return lecSplit[0]
     return None
 
@@ -129,11 +129,23 @@ def getNameAliasesOrNull(name, database):
             return aliasesStr
     return None
 
-    
+
+def getStepMessage(message):
+    diff = (80 - len(message)) // 2
+    if diff > 0:
+        message = '='*diff + message + '='*diff
+    return '\n' + '='*len(message) + '\n' + message + '\n' + '='*len(message)
+
 def printStep(message):
-    print('\n' + '='*len(message) + '\n' + message + '\n' + '='*len(message))
+    print(getStepMessage(message))
+def getSubstepMessage(message):
+    diff = (80 - len(message)) // 2
+    if diff > 0:
+        message = '-'*diff + message + '-'*diff
+    return '\n' + message
+
 def printSubstep(message):
-    print('\n' + '-'*10 + message + '-'*10)
+    print(getSubstepMessage(message))
     
 def writeLog():
     with open(LOG_FILE, 'w+') as f:
@@ -153,16 +165,38 @@ def writeNewNamesLog(itemType):
 
 # ----------------- generating new DBs ----------------------
 def getAliasesStr(name, db, default, default2="default"):
-    return (name and getNameAliasesOrNull(name, db)) or default or default2
+    if name == None:
+        return default or default2
+    aliasesStr = getNameAliasesOrNull(name, db)
+    if aliasesStr:
+        assert len(aliasesStr) > 2
+        aliasesStr = aliasesStr[1:-1]
+    return aliasesStr or default or default2
+
+def hasCyrillic(text):
+    return bool(re.search('[а-яА-Я]', text))
+
+def extractOneName(aliasesStr):
+    aliases = aliasesStr.split('|')
+    for name in aliasesStr:
+        if hasCyrillic(name):
+            return name
+    assert len(aliases) > 0
+    print('Warning: "' + aliasesStr +'" have no russian alias')
+    return aliases[0]
 
 def createNoteEntry(note, DBs):
+    subjectsStr = getAliasesStr(note['subjectName'], DBs['subjects'], 
+            note['subject'])
+    lecturersStr = getAliasesStr(note['lecturer'], DBs['lecturers'], 
+            note['lecturer'], note['title']) 
     return '- id: "' + note['id'] + '"\n' +\
     '  semester: "' + note['semester'] + '"\n' +\
-    '  subject: "' +\
-      getAliasesStr(note['subjectName'], DBs['subjects'], note['subject']) + '"\n' +\
+    '  subject: "' + subjectsStr + '"\n' +\
+    '  subjectTitle: "' + extractOneName(subjectsStr) + '"\n' +\
     '  year: "' + str(note['year'] or '0') + '"\n' +\
-    '  lecturer: "' +\
-      getAliasesStr(note['lecturer'], DBs['lecturers'], note['lecturer'], note['title']) + '"\n'
+    '  lecturer: "' + lecturersStr + '"\n' +\
+    '  lecturerTitle: "' + extractOneName(lecturersStr) + '"\n'
 
 
 def generateNotesDB(notesList, DBs):
@@ -178,9 +212,8 @@ def createSubjectEntry(subject, occurrences, db):
         semesters.add(note['semester'])
     assert len(semesters) > 0
     semesters = ','.join(sorted(semesters))
-    aliases = getAliasesStr(subject, db, occurrences[0]['subjectName']).split('|') 
-    assert len(aliases) > 0
-    title = (aliases[0] if len(aliases) == 1 else aliases[1])
+    title = extractOneName(getAliasesStr(subject, db, 
+        occurrences[0]['subjectName']))
     return '- title: "' + title + '"\n' +\
             '  semesters: "' + semesters + '"\n'
 
@@ -190,14 +223,17 @@ def generateSubjectsDB(subjectsDic, db):
         subjectsListDB += createSubjectEntry(subject, occurrences, db)
     with open(DB_FILES['subjectsList'], 'w+') as f:
         print(subjectsListDB, file=f)
+def generateDBs(notesList, namesDics):
+    printStep(' generating DBs ')
+    generateNotesDB(notesList, getDBs())
+    generateSubjectsDB(namesDics['subjects'], getDBs()['subjects'])
 
 def main():
     notesList = getNotesList()
     namesDics = getNamesDics(notesList)
     detectNewNames(namesDics)
+    generateDBs(notesList, namesDics)
     writeLog()
-    generateNotesDB(notesList, getDBs())
-    generateSubjectsDB(namesDics['subjects'], getDBs()['subjects'])
 
 if __name__ == "__main__":
     main()
