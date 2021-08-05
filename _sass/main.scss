@@ -108,10 +108,10 @@
 .note-btn:hover {
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
 }
-#notes-list {
+#notes-list, #subjects-list {
     text-align: center;
 }
-#notes-list div {
+#notes-list div, #subjects-list div {
     margin: 10px;
     display: inline-block;
 }
