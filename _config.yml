@@ -20,8 +20,7 @@
 
 title: h\nu 
 description: >- # this means to ignore newlines until "baseurl:"
-  Сайт Клуба Теха Лекций. Тут можно быстро (и, надеемся, удобно) искать конспекты на нашем диске. 
-  PS: Алгоритм для названия предмета приблизительный (то есть не обязательно попасть в название) а для фамилии лектора - бинарный (то есть, проверяется, является ли то что введено подстрокой или нет). 
+  Тут можно быстро и, надеемся, удобно искать конспекты на нашем диске. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  'MIPT-Group/Lectures_Tex_Club'
