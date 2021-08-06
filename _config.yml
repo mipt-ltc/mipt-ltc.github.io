@@ -20,7 +20,7 @@
 
 title: h\nu 
 description: >- # this means to ignore newlines until "baseurl:"
-  Тут можно быстро и, надеемся, удобно искать конспекты на нашем диске. 
+  Читайте sacred texts, изучайте \LaTeX, и, конечно, подтягивайтесь и отжимайтесь! 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  'MIPT-Group/Lectures_Tex_Club'

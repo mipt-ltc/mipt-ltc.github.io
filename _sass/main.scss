@@ -1,3 +1,4 @@
+/*-----------  --------------*/
 #ltc-hat {
     color: #000;
     text-align: center;
@@ -19,7 +20,7 @@
 }
 
 
-/*----------- --------------*/
+/*-----------  --------------*/
 .row {
     margin-top: 5%;
     display: flex;
@@ -30,16 +31,6 @@
     margin: auto;
     text-align: center;
     padding-top: 030px;
-}
-.semesters {
-    flex-basis: 31%;
-    background: #fff3f3;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    text-align: center;
-    padding: 20px 12px;
-    box-sizing: border-box;
-    transition: 0.5s;
 }
 .sem-btn {
     width: 100%;
@@ -53,15 +44,20 @@
 .sem-btn:hover {
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
 }
+.semesters {
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: center;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
 .semesters h3 {
     font-weight: 600;
     margin: 10px;
     text-align: center;
-}
-.semesters ul {
-    text-align: center;
-    list-style: none;
-    color: #777;
 }
 .semesters p {
     width: 100%;
@@ -70,29 +66,32 @@
 .semesters ul li {
     margin: 15px 0;
 }
+.semesters ul {
+    text-align: center;
+    list-style: none;
+    color: #777;
+}
 
 @media(max-width: 700px) {
+    #courses-nav {
+        max-width: 300px;
+    }
     .row {
         flex-direction: column;
     }
 }
 
 /* ---------- search ------------ */
-#search span {
-    white-space: nowrap;
-}
 #search {
     text-align: center;
     margin-bottom: 15px;
 }
-
+#search span {
+    white-space: nowrap;
+}
 #search h2 sup {
     font-size: 15px;
     cursor: pointer;
-}
-.modal-content p p {
-    background: lightgray;
-    border: 1px solid gray;    
 }
 .search-input {
     text-align: center;
@@ -102,7 +101,12 @@
     box-sizing: border-box;
     padding: 10px 5px;
 }
+.modal-content p p {
+    background: lightgray;
+    border: 1px solid gray;    
+}
 
+/*-----------  --------------*/
 .note-btn {
     display: block;
     box-sizing: border-box;
@@ -257,9 +261,9 @@ strong{ font-weight: bold;}
 
 /* ---------- footer -------*/
 .small-footer {
+    width: 80%; 
     margin: auto;
     text-align: center;
-    padding-top: 030px;
 }
 hr { 
     display: block; 
@@ -269,8 +273,12 @@ hr {
     margin: 0; 
     padding: 0; 
 }
-.small-footer hr { 
-    border-top: 1px solid #bbb;
+#notes-list div a hr { 
+    border-top: 1px solid #aaa;
+}
+#footer-hr { 
+    border-top: 1px solid #aaa;
+    margin-top: 30px;
 }
 .social-media {
     list-style: none;
@@ -282,27 +290,24 @@ hr {
     text-align: left;
     margin: 0 20px;
     color: gray;
-    flex-basis: 23%; 
-    min-width: 190px;
     font-size: 16px;
+    min-width: 190px;
 }
 .footer-column-2 {
     color: gray;
-    flex-basis: 73%; 
     text-align: center;
     font-size: 16px;
     padding: 0px 20px ;
     text-align: center;
-    padding: 20px 12px;
     box-sizing: border-box;
     transition: 0.5s;
 }
-.footer-col-3 {
-    flex-basis: 71%;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    text-align: center;
-    padding: 20px 12px;
-    box-sizing: border-box;
-    transition: 0.5s;
+.foot-ending {
+    margin-top: 12px;
+    font-size: 10px;
+    color: #888;
+}
+#footer-end-hr {
+    width: 50%;
+    margin: auto;
 }
