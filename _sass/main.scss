@@ -1,3 +1,34 @@
+hr { 
+    display: block; 
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid #ddd;
+    margin: 0; 
+    padding: 0; 
+}
+
+.row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+@media(max-width: 700px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+.default-btn {
+    display: block;
+    box-sizing: border-box;
+    background: #ffe0e0;
+    padding: 10px; 
+    border-radius: 10px;
+    cursor: pointer;
+}
+.default-btn:hover {
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
 /*-----------  --------------*/
 #ltc-hat {
     color: #000;
@@ -7,10 +38,13 @@
 #ltc-hat h1 {
     font-size: 62px;
 }
-
 #ltc-hat p {
     margin: 10px 0 40px;
     font-size: 14px;
+}
+#ltc-hat .default-btn {
+    margin: auto;
+    text-align: center;
 }
 
 @media(max-width: 700px) {
@@ -21,28 +55,11 @@
 
 
 /*-----------  --------------*/
-.row {
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
-}
 #courses-nav {
     width: 80%;
     margin: auto;
     text-align: center;
     padding-top: 030px;
-}
-.sem-btn {
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
-    background: #ffe0e0;
-    padding: 10px; 
-    border-radius: 10px;
-    cursor: pointer;
-}
-.sem-btn:hover {
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
 }
 .semesters {
     flex-basis: 31%;
@@ -57,27 +74,15 @@
 .semesters h3 {
     font-weight: 600;
     margin: 10px;
-    text-align: center;
 }
 .semesters p {
     width: 100%;
     margin: 15px 0;
 }
-.semesters ul li {
-    margin: 15px 0;
-}
-.semesters ul {
-    text-align: center;
-    list-style: none;
-    color: #777;
-}
 
 @media(max-width: 700px) {
     #courses-nav {
         max-width: 300px;
-    }
-    .row {
-        flex-direction: column;
     }
 }
 
@@ -85,9 +90,6 @@
 #search {
     text-align: center;
     margin-bottom: 15px;
-}
-#search span {
-    white-space: nowrap;
 }
 #search h2 sup {
     font-size: 15px;
@@ -101,45 +103,70 @@
     box-sizing: border-box;
     padding: 10px 5px;
 }
-.modal-content p p {
+.code {
     background: lightgray;
     border: 1px solid gray;    
 }
 
 /*-----------  --------------*/
-.note-btn {
-    display: block;
-    box-sizing: border-box;
-    background: #ffe0e0;
-    padding: 10px; 
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: left;
-    max-width: 350px;
-}
-.note-btn:hover {
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
-}
-#notes-list, #subjects-list {
+#notes-list, 
+#subjects-list {
     text-align: center;
 }
-#notes-list div, #subjects-list div {
+#notes-list div, 
+#subjects-list div {
     margin: 10px;
     display: inline-block;
 }
-section div hr {
+#notes-list .default-btn {
+    text-align: left;
+    max-width: 350px;
+}
+#notes-list hr {
     width: 50%;
-    color: lightgray;
 }
 
-section div div hr {
-    width: 100%;
-    color: lightgray;
+
+/* --------- modal -------- */
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-hr {
-    width: 100%;
-    color: lightgray;
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 
 /*---- cute button -----*/
@@ -218,45 +245,6 @@ strong{ font-weight: bold;}
 .button .fa{ float: left; font-size: 14px; line-height: 20px; margin: -1px 8px 0 -4px; vertical-align: top;}
 
 
-/* --------- modal -------- */
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 
 /* ---------- footer -------*/
@@ -264,14 +252,6 @@ strong{ font-weight: bold;}
     width: 80%; 
     margin: auto;
     text-align: center;
-}
-hr { 
-    display: block; 
-    height: 1px;
-    border: 0; 
-    border-top: 1px solid #ddd;
-    margin: 0; 
-    padding: 0; 
 }
 #notes-list div a hr { 
     border-top: 1px solid #aaa;
@@ -286,21 +266,18 @@ hr {
     font-size: 16px;
     display: inline-block;
 }
+.footer-column-1,
+.footer-column-2 {
+    color: gray;
+    margin: 0 20px;
+    font-size: 16px;
+}
 .footer-column-1 {
     text-align: left;
-    margin: 0 20px;
-    color: gray;
-    font-size: 16px;
     min-width: 190px;
 }
 .footer-column-2 {
-    color: gray;
     text-align: center;
-    font-size: 16px;
-    padding: 0px 20px ;
-    text-align: center;
-    box-sizing: border-box;
-    transition: 0.5s;
 }
 .foot-ending {
     margin-top: 12px;

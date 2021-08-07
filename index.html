@@ -12,7 +12,7 @@ layout: default
     <p>Студенческий \LaTeX фан-клуб. Тут можно найти PDF конспекты лекций, ведущихся в МФТИ.
     </p>
     <div>
-    <a href="/about" class="sem-btn">Подробнее о нас =)</a>
+    <a href="/about" class="default-btn">Подробнее о нас =)</a>
     </div>
  </section>
 
@@ -27,23 +27,23 @@ layout: default
     <div class="row"> 
         <div class="semesters">
             <h3>1st Course</h3>
-            <p class="sem-btn" onclick="showSubjects('1')">1 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('1')">1 Semestr</p>
             <hr>
-            <p class="sem-btn" onclick="showSubjects('2')">2 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('2')">2 Semestr</p>
         </div>
 
         <div class="semesters">
             <h3>2nd Course</h3>
-            <p class="sem-btn" onclick="showSubjects('3')">3 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('3')">3 Semestr</p>
             <hr>
-            <p class="sem-btn" onclick="showSubjects('4')">4 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('4')">4 Semestr</p>
         </div>
 
         <div class="semesters">
             <h3>3rd Course</h3>
-            <p class="sem-btn" onclick="showSubjects('5')">5 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('5')">5 Semestr</p>
             <hr>
-            <p class="sem-btn" onclick="showSubjects('6')">6 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('6')">6 Semestr</p>
         </div>
     </div>
 </section>
@@ -62,7 +62,7 @@ layout: default
 <!---------- search input  ---------->
 <hr>
 <section id="search" class="raw">
-    <h2>Search for notes<sup id="myBtn"><i class="fa fa-question-circle-o"></i></sup></h2>
+    <h2>Search for notes<sup id="showModalElem"><i class="fa fa-question-circle-o"></i></sup></h2>
     <div class="search-input">
         <label for="semester">Semester</label><br>
         <input id="semester" type="text" value="" name="semester" placeholder="1 or 2, 3" onkeyup="search()">
@@ -79,9 +79,9 @@ layout: default
         <label for="lecturer">Lecturer</label><br>
         <input id="lecturer" type="text" value="" name="lecturer" placeholder="Дашад" onkeyup="search()">
     </div>
-    <span>
+    <div>
     <input type="submit" value="Clear" class="button" onclick="clearFields()">
-    </span>
+    </div>
 </section>
 
 <!-- The Modal -->
@@ -113,7 +113,7 @@ layout: default
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.getElementById("showModalElem");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -140,5 +140,5 @@ window.onclick = function(event) {
 
 <section id="notes-list">
 </section>
-
+<body onload="assignInputElements();">
 
