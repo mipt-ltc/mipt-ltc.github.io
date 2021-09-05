@@ -1,5 +1,9 @@
 name: Updating Notes Database
-on: [push]
+on: 
+  push:
+  schedule:
+    - cron: "0 0 * * *"
+
 
 jobs: 
   Updating-Notes-Database:
