@@ -34,4 +34,3 @@ permalink: /latex/
 ### Usual Mistakes
 
 
-
