@@ -1,8 +1,8 @@
 name: Updating Notes Database
 on: [push]
 
-jobs:
-  Commit-Changes:
+jobs: 
+  Updating-Notes-Database:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -10,4 +10,9 @@ jobs:
      
       - name: Update source code
         run: cd assets && make testActions && ls
+        
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          default_author: github_actions
 
