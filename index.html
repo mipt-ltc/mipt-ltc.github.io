@@ -26,24 +26,24 @@ layout: default
 
     <div class="row"> 
         <div class="semesters">
-            <h3>1st Course</h3>
-            <p class="default-btn" onclick="showSubjects('1')">1 Semestr</p>
+            <h3>1-й курс</h3>
+            <p class="default-btn" onclick="showSubjects('1')">1 семестр</p>
             <hr>
-            <p class="default-btn" onclick="showSubjects('2')">2 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('2')">2 семестр</p>
         </div>
 
         <div class="semesters">
-            <h3>2nd Course</h3>
-            <p class="default-btn" onclick="showSubjects('3')">3 Semestr</p>
+            <h3>2-й курс</h3>
+            <p class="default-btn" onclick="showSubjects('3')">3 семестр</p>
             <hr>
-            <p class="default-btn" onclick="showSubjects('4')">4 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('4')">4 семестр</p>
         </div>
 
         <div class="semesters">
-            <h3>3rd Course</h3>
-            <p class="default-btn" onclick="showSubjects('5')">5 Semestr</p>
+            <h3>3-й курс</h3>
+            <p class="default-btn" onclick="showSubjects('5')">5 семестр</p>
             <hr>
-            <p class="default-btn" onclick="showSubjects('6')">6 Semestr</p>
+            <p class="default-btn" onclick="showSubjects('6')">6 семестр</p>
         </div>
     </div>
 </section>
@@ -62,25 +62,25 @@ layout: default
 <!---------- search input  ---------->
 <hr>
 <section id="search" class="raw">
-    <h2>Search for notes<sup id="showModalElem"><i class="fa fa-question-circle-o"></i></sup></h2>
+    <h2>Найдите конспект! <sup id="showModalElem"><i class="fa fa-question-circle-o"></i></sup></h2>
     <div class="search-input">
-        <label for="semester">Semester</label><br>
+        <label for="semester">Семестр</label><br>
         <input id="semester" type="text" value="" name="semester" placeholder="1 or 2, 3" onkeyup="search()">
     </div>
     <div class="search-input">
-        <label for="subject">Subject</label><br>
+        <label for="subject">Предмет</label><br>
         <input id="subject" type="text" value="" name="subject" placeholder="матлог" onkeyup="search()">
     </div>
     <div class="search-input">
-        <label for="year">Year</label><br>
+        <label for="year">Год</label><br>
         <input id="year" type="text" value="" name="year" placeholder="2019 or 2020, 2021" onkeyup="search()">
     </div>
     <div class="search-input">
-        <label for="lecturer">Lecturer</label><br>
+        <label for="lecturer">Лектор</label><br>
         <input id="lecturer" type="text" value="" name="lecturer" placeholder="Дашад" onkeyup="search()">
     </div>
     <div>
-    <input type="submit" value="Clear" class="button" onclick="clearFields()">
+    <input type="submit" value="Очистить" class="button" onclick="clearFields()">
     </div>
 </section>
 
@@ -140,5 +140,5 @@ window.onclick = function(event) {
 
 <section id="notes-list">
 </section>
-<body onload="assignInputElements();">
+<body onload="assignInputElements();assignSectionElements();">
 

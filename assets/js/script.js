@@ -5,6 +5,7 @@ const LOW_MATCH_BOUNDARY = -500;
 const DRIVE_FILE_URL_BEGINNING = 'https://drive.google.com/file/d/';
 
 var searchInputElems;
+var sections;
 
 function assignInputElements() {
     searchInputElems = {
@@ -14,30 +15,30 @@ function assignInputElements() {
         'lecturer': document.getElementById('lecturer')
     };
 }
+function assignSectionElements() {
+    sections = {
+        'subjects-list': document.getElementById('subjects-list'),
+        'notes-list': document.getElementById('notes-list')
+    }
+}
 function clearFields() {
     searchInputElems['semester'].value = '';
     searchInputElems['subject'].value = '';
     searchInputElems['year'].value = '';
     searchInputElems['lecturer'].value = '';
-    document.getElementById('notes-list').innerHTML = '';
+    sections['notes-list'].innerHTML = '';
 }
 function clearSubjects() {
-    document.getElementById('subjects-list').innerHTML = '';
+    sections['subjects-list'].innerHTML = '';
 }
 function getDriveUrl(noteId) {
-    return  + noteId;
+    return DRIVE_FILE_URL_BEGINNING + noteId;
 }
 function isIncludes(noteVal, userVal) {
     if (userVal == null || userVal == '') {
         return true;
     }
     return userVal.includes(noteVal);
-}
-function isIncludesLec(noteVal, userVal) {
-    if (userVal == null || userVal == '') {
-        return true;
-    }
-    return noteVal.includes(userVal);
 }
 function getFuzzyMatchScore(noteVal, userVal) {
     if (userVal == null || userVal == '') {
@@ -55,30 +56,31 @@ function getNoteHTML(note, id, sem, subj, year, lec) {
         '<hr>Year: ' + note['year'] +
         '<hr>Lec: ' + note['lecturerTitle'] + '</a></div>';
 }
-
-function getNotesSectionHTML(notesList) {
-    notesList.sort(function(first, second) {
-        return second[0] - first[0];
-    });
-    var notesSectionHTML = '';
-    var highMatchNotes = '';
-    var medMatchNotes = '';
-    var lowMatchNotes = '';
+function getNotesGroups(notesList) {
+    var notesGroups = {'highMatch': '', 'medMatch': '', 'lowMatch': ''};
+    notesList.sort(function(first, second) { return second[0] - first[0]; });
     notesList.forEach(function(item, index, array) {
         if (item[0] >= HIGH_MATCH_BOUNDARY) {
-            highMatchNotes += item[1];
+            notesGroups['highMatch'] += item[1];
         } else if (item[0] > LOW_MATCH_BOUNDARY) {
-            medMatchNotes += item[1];
+            notesGroups['medMatch'] += item[1];
         } else {
-            lowMatchNotes += item[1];
+            notesGroups['lowMatch'] += item[1];
         }
     })
-    if ((medMatchNotes + lowMatchNotes).length != 0) {
-        notesSectionHTML = '<hr><h2>High-matching Notes</h2>' + highMatchNotes +
-            '<hr><h2>Medium-matching Notes</h2>' + medMatchNotes + 
-            '<hr><h2>Low-matching Notes</h2>' + lowMatchNotes;
+    return notesGroups;
+}
+function getNotesSectionHTML(notesList) {
+    var notesSectionHTML = '';
+    var notesGroups = getNotesGroups(notesList);
+    if ((notesGroups['medMatch'] + notesGroups['lowMatch']).length != 0) {
+        notesSectionHTML = 
+            '<hr><h2>High-matching Notes</h2>' + notesGroups['highMatch'] +
+            '<hr><h2>Medium-matching Notes</h2>' + notesGroups['medMatch'] + 
+            '<hr><h2>Low-matching Notes</h2>' + notesGroups['lowMatch'];
     } else {
-        notesSectionHTML = highMatchNotes + medMatchNotes + lowMatchNotes;
+        notesSectionHTML = notesGroups['highMatch'] + notesGroups['medMatch'] 
+            + notesGroups['lowMatch'];
     }
     return notesSectionHTML;
 }
@@ -87,7 +89,7 @@ function isNoteMatching(note) {
     console.assert(note['semester'].length == 1);
     return isIncludes(note['semester'], searchInputElems['semester'].value) &&
            isIncludes(note['year'], searchInputElems['year'].value) &&
-           isIncludesLec(note['lecturer'], searchInputElems['lecturer'].value);
+           isIncludes(searchInputElems['lecturer'].value, note['lecturer']);
 }
 function getNotesList() {
     var notesList = [];
@@ -102,19 +104,17 @@ function getNotesList() {
     return notesList;
 }
 function search() {
-    document.getElementById('notes-list').innerHTML = 
-        getNotesSectionHTML(getNotesList());
+    sections['notes-list'].innerHTML = getNotesSectionHTML(getNotesList());
 }
 
 function getSubjectSectionHTML(subjectsList) {
-    subjecstSectionHTML = ''
+    subjecstSectionHTML = '<h2>' + searchInputElems['semester'].value + ' семестр</h2>'
     subjectsList.forEach(function(item, index, array) {
         subjecstSectionHTML += '<div class="default-btn" onclick="showNotes(' +
             "'" + item + "'" + ')">' + item + '</div>';
- 
     })
     subjecstSectionHTML += 
-       '<br><input type="submit" value="Clear" class="button"' + 
+       '<br><input type="submit" value="Очистить" class="button"' + 
         'onclick="clearSubjects()" style="margin-bottom: 15px;">';
     return subjecstSectionHTML;
 }
@@ -126,8 +126,7 @@ function showSubjects(semester) {
             subjectsList.push('{{ subject.title }}');
         } 
     {% endfor %}
-    document.getElementById('subjects-list').innerHTML = 
-        getSubjectSectionHTML(subjectsList);
+    sections['subjects-list'].innerHTML = getSubjectSectionHTML(subjectsList);
     search();
 }
 
