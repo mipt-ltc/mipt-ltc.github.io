@@ -7,3 +7,4 @@ vendor
 *.swp
 __pycache__*
 tags
+*apiKey.txt
