@@ -10,7 +10,7 @@
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 15SBMbR5Scnxw9PIsfwQD6vDySbjqKRuj
-      title: Machine_Learning
+      title: Applied_Machine_Learning
   kind: drive#file
   mimeType: application/vnd.google-apps.folder
   parent: 17tvogD2WnmudB-MqnAdxnNCC7CtZS-Gm
@@ -365,11 +365,6 @@
   children:
     1EPdTOCUNy24BKZExaLFBFvjkw7qTGqD7:
       children:
-        16It7mBuWYMMZdhW4rrNToaQuRkC_tCKI:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 1EPdTOCUNy24BKZExaLFBFvjkw7qTGqD7
-          title: 2020_Pyrkova.pdf
         1PrXSRECoLdzDaV_S354c5T4wzo2zpCym:
           kind: drive#file
           mimeType: application/pdf
@@ -559,12 +554,12 @@
           kind: drive#file
           mimeType: application/pdf
           parent: 1vITCZiqIWVzYspgXqe0uftdSw01pcZXD
-          title: 2013_?.pdf
+          title: 2013_Beliayev.pdf
         1qA42BMwg3k8uQmNZFFyOeGExnZq8KclD:
           kind: drive#file
           mimeType: application/pdf
           parent: 1vITCZiqIWVzYspgXqe0uftdSw01pcZXD
-          title: 2015_?.pdf
+          title: 2015_Ivashchenko.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1fg8k-3JQvfGpcOWeYiAoQeLM-3EY_Nqm
@@ -575,19 +570,13 @@
   title: 3_Semester
 1n9ppXfwtiw_qriASJflz5wficEHIVP8v:
   children:
-    14o8ngENvWBAaHezHU1_Enlgipp_72ez0:
-      children:
-        1uzFxvzW5JfoPS68ChOqHsaRRpEucBj0O:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 14o8ngENvWBAaHezHU1_Enlgipp_72ez0
-          title: 2020_Konovalov.pdf
-      kind: drive#file
-      mimeType: application/vnd.google-apps.folder
-      parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
-      title: Functional_Analysis
     19i5lNftoc3STk7rutBLBBLVoWEVhI5WQ:
       children:
+        1c6h-7BrTjvtQo0fOfRl_3xaLoT3djuU9:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 19i5lNftoc3STk7rutBLBBLVoWEVhI5WQ
+          title: 2021_Bunakov.pdf
         1eOl_VVFUy0-ovzJE55fL1VIrq_vGYumf:
           kind: drive#file
           mimeType: application/pdf
@@ -598,27 +587,12 @@
           mimeType: application/pdf
           parent: 19i5lNftoc3STk7rutBLBBLVoWEVhI5WQ
           title: "2015_\u0413\u043E\u0440\u044F\u0439\u043D\u043E\u0432.pdf"
-        1l4HFzPH3OLaZTwZokkUhseEhb3q0ethw:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 19i5lNftoc3STk7rutBLBBLVoWEVhI5WQ
-          title: "1998_\u0413\u043E\u0440\u044F\u0439\u043D\u043E\u0432.pdf"
-        1uTTvMRz6M-Q6-kVj4kPi_pv_saXhm4nR:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 19i5lNftoc3STk7rutBLBBLVoWEVhI5WQ
-          title: 2020_Bunakov.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
-      title: Func_of_Complex_Variable
+      title: TFCV
     1HESo8F8j71NZJiqyWsoUraKMGTzbj9bI:
       children:
-        11HnTSt_73eQyXn6Ik3LgpX2DW6Uv7_tL:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 1HESo8F8j71NZJiqyWsoUraKMGTzbj9bI
-          title: 2020_Musatov.pdf
         1h-8y1uEtDasRtlbLnmLPoiQ9vs0ksWun:
           kind: drive#file
           mimeType: application/pdf
@@ -628,6 +602,17 @@
       mimeType: application/vnd.google-apps.folder
       parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
       title: Computational_Complexity
+    1uld-rwufF2u7zbI4YPD_BrEKzImZpz99:
+      children:
+        1MNNHSAPn5bMnRgImR2a1737Q89d_13JQ:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1uld-rwufF2u7zbI4YPD_BrEKzImZpz99
+          title: 2021_Savelov.pdf
+      kind: drive#file
+      mimeType: application/vnd.google-apps.folder
+      parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
+      title: Statistics
     1wqsIw1HWW3FwthNZCu7Rsr4GzkJQ_fct:
       children:
         1CkUWGdtdAyjw9ErXXko57Ss1-PjrSy4x:
@@ -635,11 +620,6 @@
           mimeType: application/pdf
           parent: 1wqsIw1HWW3FwthNZCu7Rsr4GzkJQ_fct
           title: "2019_\u0420\u043E\u0434\u0438\u043E\u043D\u043E\u0432.pdf"
-        1ZC65nDXuMQ5a20Wbqi07IjVM1vkxWcmE:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 1wqsIw1HWW3FwthNZCu7Rsr4GzkJQ_fct
-          title: 2020_Rodionov.pdf
         1b_633_EHBbikpi6Wxn1p8c4I3fPb0Ej0:
           kind: drive#file
           mimeType: application/pdf
@@ -653,7 +633,7 @@
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
-      title: Math_Statistics
+      title: Mathematical_Statistics
   kind: drive#file
   mimeType: application/vnd.google-apps.folder
   parent: 17tvogD2WnmudB-MqnAdxnNCC7CtZS-Gm
