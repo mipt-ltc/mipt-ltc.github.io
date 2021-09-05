@@ -50,7 +50,7 @@ function getFuzzyMatchScore(noteVal, userVal) {
 }
 
 function getNoteHTML(note, id, sem, subj, year, lec) {
-    return '<div><a href="' + getDriveUrl(note['id']) + '" class="default-btn">' +
+    return '<div><a style="color:inherit;" href="' + getDriveUrl(note['id']) + '" class="default-btn">' +
         'Sem: ' + note['semester'] + 
         '<hr>Subj: ' + note['subjectTitle'] + 
         '<hr>Year: ' + note['year'] +
