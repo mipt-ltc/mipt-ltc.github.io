@@ -8,8 +8,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
      
-      - name: Update source code
-        run: cd assets && make testActions && ls
+      - name: Pull changes form Google Drive
+        run: |
+          cd assets
+          echo ${{ secrets.GOOGLE_API_KEY }} > apiKey.txt
+          make
         
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
