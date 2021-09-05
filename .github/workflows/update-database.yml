@@ -10,5 +10,5 @@ jobs:
      
       - name: Update source code
         run: pwd
-        run: ls
+      - run: ls
 
