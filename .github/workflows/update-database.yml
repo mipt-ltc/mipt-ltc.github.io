@@ -1,0 +1,13 @@
+name: Updating Notes Database
+on: [push]
+
+jobs:
+  Commit-Changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+     
+      - name: Update source code
+        run: pwd
+
