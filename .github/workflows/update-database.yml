@@ -1,6 +1,5 @@
 name: Updating Notes Database
 on: 
-  push:
   schedule:
     - cron: "0 0 * * *"
 
