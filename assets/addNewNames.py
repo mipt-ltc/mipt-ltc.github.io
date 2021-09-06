@@ -7,18 +7,25 @@ from updateDBs import DB_FILES
 ALIASES_STR_BEGIN = 4
 ALIASES_STR_END = -3
 
+def getSimilarEntries(item):
+    aliases = getDatabase(DB_FILES['subjects'])
+    ratios = []
+    for i in range(len(aliases)): 
+        dist = process.extractOne(item['name'], aliases[i].split('|'))
+        ratios.append({'distance': dist, 'line': i, 'aliases': aliases[i]})
+    return sorted(ratios, key = lambda entry: -entry['distance'][1])[:5]
+
 def printWantToAddMessage(item):
     printSubstep('-'*10)
     print('Whant to add "' + item['name'] + '" in subjects database? [y/n]')
     print('Occurrence(s):')
     for url in item['url']:
         print(url)
-    aliases = getDatabase(DB_FILES['subjects'])
-    ratios = []
-    for i in range(len(aliases)): 
-        dist = process.extractOne(item['name'], aliases[i].split('|'))
-        ratios.append({'distance': dist, 'line': i})
-    print(sorted(ratios, key = lambda entry: -entry['distance'][1])[:5])
+    print('Similar enties in DB:')
+    for sim in getSimilarEntries(item):
+        print('  line: ' + str(sim['line']) + 
+                '; distance: ' + str(sim['distance']) + 
+                '; aliases: ' + sim['aliases'])
 
 def handleWantToAddInput(item):
     printWantToAddMessage(item)
@@ -28,7 +35,25 @@ def handleWantToAddInput(item):
             break
     return ans
 
-def handleAreYouSureInput(aliases, DBtype):
+def getSetOfLinesWithSimEnties(item):
+    linesSet = set()
+    for entry in getSimilarEntries(item):
+        linesSet.add(entry['line'])
+    return linesSet
+ 
+def isLineNumberValid(item, ans):
+    return ans.isnumeric() and int(ans) in getSetOfLinesWithSimEnties(item) 
+
+def handleCreateNewOrModifyOld(item):
+    print('Do you want create new aliases or add to old? [old/line number]')
+    while True:
+        ans = input()
+        print(type(ans))
+        if ans == 'old' or isLineNumberValid(item, ans):
+            break
+    return ans
+
+def handleAreYouSureInput(item, DBtype, aliases):
     if aliases == None:
         print("Error: invalid input. Please repeat.")
         return handleAliasesInput(DBtype)
@@ -42,11 +67,11 @@ def handleAreYouSureInput(aliases, DBtype):
         return {'ans': ans, 'aliases': aliases}
 
 
-def handleAliasesInput(item, DBtype):
+def handleAliasesInput(item, DBtype, additionallAliases):
     print('Please list aliases, separated by comma:')
     aliases = getStandardizeAliasesStrOrNull(
         '|'.join([item['name']] + input().split(',')) + '|', DBtype)
-    return handleAreYouSureInput(aliases, DBtype)
+    return handleAreYouSureInput(item, DBtype, aliases)
 
 def addInSetName(name, namesSet, DBtype):
     if name.strip() == '':
@@ -61,7 +86,6 @@ def getStandardizeAliasesStrOrNull(aliasesStr, DBtype):
     for name in aliases:
         addInSetName(name, namesSet, DBtype)
     if len(namesSet) == 0:
-
         return None
     standardizedStr = '|'
     for name in sorted(namesSet):
@@ -75,12 +99,28 @@ def addNewNames(file, DBtype):
         ans = handleWantToAddInput(item)
         if ans == 'n': 
             continue
-        ans = handleAliasesInput(item, DBtype)
-        if ans['ans'] == 'n' or ans['aliases'] == None: 
-            continue
-        with open(DB_FILES['subjects'], 'a') as f:
-            print('- "' + ans['aliases'] + '"', file=f)
-        printSubstep(' new aliases successfully added')
+        ans = handleCreateNewOrModifyOld(item)
+        if ans == 'old':
+            createNewAliasesEntry(item, DBtype)
+        else: 
+            updateOldEntry(item, DBtype, int(ans))
+
+def createNewAliasesEntry(item, DBtype):
+    ans = handleAliasesInput(item, DBtype)
+    if ans['ans'] == 'n' or ans['aliases'] == None: 
+        return
+    with open(DB_FILES['subjects'], 'a') as f:
+        print('- "' + ans['aliases'] + '"', file=f)
+    printSubstep(' new aliases successfully added')
+
+def updateOldEntry(item, DBtype, lineNumber):
+    print('ollala')
+    aliases = getDatabase(DB_FILES['subjects'])
+    with open(DB_FILES[DBtype], 'r') as f:
+        DBlines = f.readlines()
+    print(DBlines)
+    print(item)
+    print(DBlines[lineNumber])
 
 def standardizeNamesAndSort(DBtype):
     with open(DB_FILES[DBtype], 'r') as f:
