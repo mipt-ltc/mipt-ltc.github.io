@@ -1,5 +1,5 @@
 import yaml
-from fuzzywuzzy import fuzz
+from fuzzywuzzy import fuzz, process
 
 from updateDBs import getDatabase 
 from updateDBs import printSubstep 
@@ -13,6 +13,12 @@ def printWantToAddMessage(item):
     print('Occurrence(s):')
     for url in item['url']:
         print(url)
+    aliases = getDatabase(DB_FILES['subjects'])
+    ratios = []
+    for i in range(len(aliases)): 
+        dist = process.extractOne(item['name'], aliases[i].split('|'))
+        ratios.append({'distance': dist, 'line': i})
+    print(sorted(ratios, key = lambda entry: -entry['distance'][1])[:5])
 
 def handleWantToAddInput(item):
     printWantToAddMessage(item)
