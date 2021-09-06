@@ -62,12 +62,12 @@ def handleAreYouSureInput(item, DBtype, aliases):
     while ans != 'y' and ans != 'n' and ans != 'r':
         ans = input()
     if ans == 'r': 
-        return handleAliasesInput(DBtype)
+        return handleAliasesInput(item, DBtype)
     else: 
         return {'ans': ans, 'aliases': aliases}
 
 
-def handleAliasesInput(item, DBtype, additionallAliases):
+def handleAliasesInput(item, DBtype):
     print('Please list aliases, separated by comma:')
     aliases = getStandardizeAliasesStrOrNull(
         '|'.join([item['name']] + input().split(',')) + '|', DBtype)
