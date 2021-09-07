@@ -172,8 +172,11 @@ def hasCyrillic(text):
 def extractOneName(aliasesStr):
     aliases = aliasesStr.split('|')
     for name in aliases:
+        if name[0] == '$':
+            return name[1:] 
+    for name in aliases:
         if hasCyrillic(name):
-            return name.capitalize() 
+            return name 
     assert len(aliases) > 0
     print('Warning: "' + aliasesStr +'" have no russian alias (or not in DB)')
     return aliases[0].capitalize()
