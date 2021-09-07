@@ -99,7 +99,7 @@ def detectNewNames(namesSet):
     for dbKey in DBs:
         printSubstep(' checking ' + dbKey.upper() + ' database ')
         for name, occurrences in namesSet[dbKey].items():
-            if getNameAliasesOrNull(name,DBs[dbKey]) == None:
+            if getNameAliasesOrNull(name, DBs[dbKey]) == None:
                 newNames[dbKey][name] = occurrences
                 print('"' + name + '" is not in database.')
 
@@ -117,8 +117,10 @@ def getDBs():
 
 
 def getNameAliasesOrNull(name, database):
+    name = name.lower()
     for aliasesStr in database:
-        if ('|' + name + '|') in aliasesStr:
+        if ('|' + name + '|') in aliasesStr or \
+            ('|$' + name + '|') in aliasesStr:
             return aliasesStr
     return None
 
@@ -171,12 +173,11 @@ def hasCyrillic(text):
 
 def extractOneName(aliasesStr):
     aliases = aliasesStr.split('|')
-    for name in aliases:
-        if name[0] == '$':
-            return name[1:] 
+    if aliases[0][0] == '$':
+        return aliases[0][1:].capitalize()
     for name in aliases:
         if hasCyrillic(name):
-            return name 
+            return name.capitalize()
     assert len(aliases) > 0
     print('Warning: "' + aliasesStr +'" have no russian alias (or not in DB)')
     return aliases[0].capitalize()

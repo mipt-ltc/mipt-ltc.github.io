@@ -15,19 +15,17 @@ def inputTest():
     return input()
 
 # --------
-def addNameInSet(name, namesSet, DBtype):
+def addNameInSet(name, namesSet):
     name = name.strip()
     if name == '':
         return
-    if DBtype == 'lecturers':
-        namesSet.add(name.capitalize())
     namesSet.add(name.lower())
     
-def getStandardizeAliasesStr(aliasesStr, DBtype):
+def getStandardizeAliasesStr(aliasesStr):
     aliases = aliasesStr.split('|')
     namesSet = set()
     for name in aliases:
-        addNameInSet(name, namesSet, DBtype)
+        addNameInSet(name, namesSet)
     if len(namesSet) == 0:
         return ''
     standardizedStr = '|'
@@ -43,7 +41,7 @@ def standardizeNamesAndSort(DBtype):
         assert len(line) > 0
         aliasesStr = line[ALIASES_STR_BEGIN:ALIASES_STR_END]
         finalLines += '- "' +\
-            getStandardizeAliasesStr(aliasesStr, DBtype)+ '"\n'
+            getStandardizeAliasesStr(aliasesStr)+ '"\n'
     with open(DB_FILES[DBtype]['aliases'], 'w') as f:
         f.write(finalLines)
 # --------------
@@ -101,8 +99,7 @@ def handleAreYouSureInput(nameInfo, startNamesSet, aliases):
 def handleAliasesInput(nameInfo, startNamesSet):
     print('List of additional aliases, separated by comma:')
     aliases = getStandardizeAliasesStr(
-        '|'.join(list(startNamesSet) + input().split(',')) + '|', 
-            nameInfo['DBtype'])
+        '|'.join(list(startNamesSet) + input().split(',')) + '|')
     if aliases == '':
         print("Error: invalid input. Please repeat.")
         return handleAliasesInput(nameInfo, startNamesSet)
