@@ -13,7 +13,7 @@ jobs:
      
       - name: Pull changes form Google Drive
         run: |
-          cd assets
+          cd assets/DBmanage
           echo ${{ secrets.GOOGLE_API_KEY }} > apiKey.txt
           make
           rm apiKey.txt
