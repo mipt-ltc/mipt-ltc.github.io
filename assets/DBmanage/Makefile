@@ -5,6 +5,6 @@ all:
 addNames:
 	python3 addNewNames.py
 
-testActions:
-	touch testActions.txt
+test:
+	python3 testS.py
 

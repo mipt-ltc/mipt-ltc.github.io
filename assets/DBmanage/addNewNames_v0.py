@@ -1,4 +1,3 @@
-import yaml
 from fuzzywuzzy import fuzz, process
 
 from updateDBs import getDatabase 
