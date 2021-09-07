@@ -46,7 +46,7 @@ It is the page made for the LTC student club. It provides an interface to search
 3. You can start server with the command `$ bundle exec jekyll serve`
 
 ### Backend
-Install requirenments with:
+Install python dependencies with:
 ```
 $ pip install -r requirements.txt
 ```
