@@ -1,4 +1,5 @@
 # LTC webpage
+https://mipt-ltc.github.io/  
 It is the page made for the LTC student club. It provides an interface to search for notes that we gathered on our Google Drive.
 
 ## How does "Backend" works?
