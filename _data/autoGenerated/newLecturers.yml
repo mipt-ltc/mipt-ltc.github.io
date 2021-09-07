@@ -10,15 +10,6 @@
 - name: "?"
   url:
     - "https://drive.google.com/file/d/1Cj3AFarRju7q8fq5y_lBWpW9bcLzf0Dd"
-- name: "Beliayev"
-  url:
-    - "https://drive.google.com/file/d/1cGV_ggZlma0USIKY4sEM_qwpfuKz0lxC"
-- name: "Ivashchenko"
-  url:
-    - "https://drive.google.com/file/d/1qA42BMwg3k8uQmNZFFyOeGExnZq8KclD"
-- name: "Savelov"
-  url:
-    - "https://drive.google.com/file/d/1MNNHSAPn5bMnRgImR2a1737Q89d_13JQ"
 - name: "ZhukovskyRodionov"
   url:
     - "https://drive.google.com/file/d/1ymqmEmCxSQSzYX2cegrHDUa4LkDWWiPk"

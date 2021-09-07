@@ -1,6 +1,6 @@
 import yaml
 from datetime import datetime
-import constants as cnst
+from constants import *
 import re
 
 
@@ -46,7 +46,7 @@ def printNamingWarning(note, item):
     badNamedNotesAndSubjects.append(message)
 
 def getNoteUrl(id):
-    return 'https://drive.google.com/file/d/' + id 
+    return DRIVE_PDF_URL + id 
 
 def getSubjectOrNull(title):
     if '|' not in title and len(title) >= MIN_TITLE_LENGTH:
@@ -112,8 +112,8 @@ def getDatabase(fileName):
     return database
 
 def getDBs():
-    return {'lecturers': getDatabase(DB_FILES['lecturers']),
-            'subjects': getDatabase(DB_FILES['subjects'])}
+    return {'lecturers': getDatabase(DB_FILES['lecturers']['aliases']),
+            'subjects': getDatabase(DB_FILES['subjects']['aliases'])}
 
 
 def getNameAliasesOrNull(name, database):
@@ -148,7 +148,7 @@ def writeLog():
     writeNewNamesLog('lecturers')
 
 def writeNewNamesLog(itemType):
-    file = DB_FILES['new' + itemType.capitalize()]
+    file = DB_FILES[itemType]['newNames']
     with open(file, 'w+') as f:
         for name, occurrences in newNames[itemType].items():
             print('- name: "' + name + '"', file=f)
@@ -175,7 +175,7 @@ def extractOneName(aliasesStr):
         if hasCyrillic(name):
             return name.capitalize() 
     assert len(aliases) > 0
-    print('Warning: "' + aliasesStr +'" have no russian alias')
+    print('Warning: "' + aliasesStr +'" have no russian alias (or not in DB)')
     return aliases[0].capitalize()
 
 def createNoteEntry(note, DBs):
@@ -214,7 +214,7 @@ def generateSubjectsDB(subjectsDic, db):
     subjectsListDB = ''
     for subject, occurrences in subjectsDic.items():
         subjectsListDB += createSubjectEntry(subject, occurrences, db)
-    with open(DB_FILES['subjectsList'], 'w+') as f:
+    with open(DB_FILES['subjects']['list'], 'w+') as f:
         print(subjectsListDB, file=f)
 
 def generateDBs(notesList, namesDics):
