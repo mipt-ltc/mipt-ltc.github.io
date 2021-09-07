@@ -173,7 +173,11 @@ def hasCyrillic(text):
 
 def extractOneName(aliasesStr):
     aliases = aliasesStr.split('|')
+    assert len(aliases) > 0
     if aliases[0][0] == '$':
+        assert len(aliases[0]) > 1 + MIN_TITLE_LENGTH
+        if aliases[0][1] == '#':
+            return aliases[0][2:].upper()
         return aliases[0][1:].capitalize()
     for name in aliases:
         if hasCyrillic(name):
