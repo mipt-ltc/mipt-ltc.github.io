@@ -49,7 +49,7 @@ It is the page made for the LTC student club. It provides an interface to search
     ```
 1. You can start server with the command `$ bundle exec jekyll serve`
 1. After you push changesin files (like `markdown` and `html`) GitHub Pages may need up to hour to fully deploy it.
-
+1. For adding `LaTeX` equations in your `markdown` and `html` you can check [upmath.me](https://upmath.me/)
 ### Backend
 Install python dependencies with:
 ```
