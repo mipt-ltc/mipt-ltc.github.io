@@ -55,7 +55,7 @@ Install python dependencies with:
 ```
 $ pip install -r requirements.txt
 ```
-To test interaction with Google Drive you need to [create your API key](https://cloud.google.com/docs/authentication/api-keys). After that run:
+For testing the interaction with Google Drive you need to [create your API key](https://cloud.google.com/docs/authentication/api-keys). After that run:
 ```
 $ echo 'YOUR_API_KEY' > assets/DBmanage/apiKey.txt
 ```
