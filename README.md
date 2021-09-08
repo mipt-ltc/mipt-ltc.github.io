@@ -38,12 +38,14 @@ It is the page made for the LTC student club. It provides an interface to search
 
 ### Frontend
 1. Install or update your `ruby` and `gem`. (You can check if they installed with commands `$ ruby -v` and `$ gem -v`.)
-2. Run instructions from https://jekyllrb.com to install `jekyll` dependencies:
+1. Run instructions from https://jekyllrb.com to install `Jekyll` :
     ``` 
     $ gem install bundler jekyll
+1.  Install `Jekyll` dependencies:
+    ``` 
     $ bundle install
     ```
-3. You can start server with the command `$ bundle exec jekyll serve`
+1. You can start server with the command `$ bundle exec jekyll serve`
 
 ### Backend
 Install python dependencies with:
