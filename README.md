@@ -48,7 +48,7 @@ It is the page made for the LTC student club. It provides an interface to search
     $ bundle install
     ```
 1. You can start server with the command `$ bundle exec jekyll serve`
-
+1. After you push changesin files (like `markdown` and `html`) GitHub Pages may need up to hour to fully deploy it.
 
 ### Backend
 Install python dependencies with:
