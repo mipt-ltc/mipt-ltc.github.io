@@ -43,13 +43,19 @@ It is the page made for the LTC student club. It provides an interface to search
     $ gem install bundler jekyll
 1.  Install `Jekyll` dependencies:
     ``` 
+    $ git clone git@github.com:mipt-ltc/mipt-ltc.github.io.git
+    $ cd mipt-ltc.github.io.git
     $ bundle install
     ```
 1. You can start server with the command `$ bundle exec jekyll serve`
+
 
 ### Backend
 Install python dependencies with:
 ```
 $ pip install -r requirements.txt
 ```
-
+To test interaction with Google Drive you need to create your API key. After that run:
+```
+$ echo 'YOUR_API_KEY' > assets/DBmanage/apiKey.txt
+```
