@@ -174,17 +174,32 @@ def hasCyrillic(text):
 def extractOneName(aliasesStr):
     aliases = aliasesStr.split('|')
     assert len(aliases) > 0
-    if aliases[0][0] == '$':
-        assert len(aliases[0]) > 1 + MIN_TITLE_LENGTH
-        if aliases[0][1] == '#':
-            return aliases[0][2:].upper()
-        return aliases[0][1:].capitalize()
     for name in aliases:
+        if name[0] == '$':
+            assert len(name) > 1 + MIN_TITLE_LENGTH
+            if name[1] == '#':
+                return name[2:].upper()
+            return name[1:].capitalize()
         if hasCyrillic(name):
             return name.capitalize()
     assert len(aliases) > 0
     print('Warning: "' + aliasesStr +'" have no russian alias (or not in DB)')
     return aliases[0].capitalize()
+
+def delCommandSymbFromStr(name):
+    cmdSymbSet = {'$', '#'}
+    while name[0] in cmdSymbSet:
+        name = name[1:]
+    return name
+
+def processAliasesStr(aliasesStr):
+    aliases = aliasesStr.split('|')
+    namesSet = set()
+    for name in aliases:
+        name = delCommandSymbFromStr(name)
+        namesSet |= {name.lower(), name.upper(), name.capitalize()}
+    return '|'.join(namesSet)
+
 
 def createNoteEntry(note, DBs):
     subjectsStr = getAliasesStr(note['subjectName'], DBs['subjects'], 
@@ -196,7 +211,7 @@ def createNoteEntry(note, DBs):
     '  subject: "' + subjectsStr + '"\n' +\
     '  subjectTitle: "' + extractOneName(subjectsStr) + '"\n' +\
     '  year: "' + str(note['year'] or '0') + '"\n' +\
-    '  lecturer: "' + lecturersStr + '"\n' +\
+    '  lecturer: "' + processAliasesStr(lecturersStr) + '"\n' +\
     '  lecturerTitle: "' + extractOneName(lecturersStr) + '"\n'
 
 
