@@ -7,6 +7,7 @@ update:
 
 addNames:
 	python3 addNewNames.py
+	python3 updateDBs.py
 
 test:
 	python3 testS.py
