@@ -119,8 +119,8 @@ def getDBs():
 def getNameAliasesOrNull(name, database):
     name = name.lower()
     for aliasesStr in database:
-        if ('|' + name + '|') in aliasesStr or \
-            ('|$' + name + '|') in aliasesStr:
+        namesSet = set([delCommandSymbFromStr(name) for name in aliasesStr[1:-1].split('|')])
+        if name in namesSet:
             return aliasesStr
     return None
 
@@ -198,7 +198,7 @@ def processAliasesStr(aliasesStr):
     for name in aliases:
         name = delCommandSymbFromStr(name)
         namesSet |= {name.lower(), name.upper(), name.capitalize()}
-    return '|'.join(namesSet)
+    return '|'.join(sorted(namesSet))
 
 
 def createNoteEntry(note, DBs):
