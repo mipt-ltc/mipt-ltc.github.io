@@ -575,6 +575,17 @@
   title: 3_Semester
 1n9ppXfwtiw_qriASJflz5wficEHIVP8v:
   children:
+    13-zkL81QHcMAJboPvy-ZZFxfcBSKfZvU:
+      children:
+        1RDSkyiJ--_eUP-wT7-WyhAGwuM5SyLLO:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 13-zkL81QHcMAJboPvy-ZZFxfcBSKfZvU
+          title: 2021_Styrt.pdf
+      kind: drive#file
+      mimeType: application/vnd.google-apps.folder
+      parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
+      title: Representation_Theory
     19i5lNftoc3STk7rutBLBBLVoWEVhI5WQ:
       children:
         1c6h-7BrTjvtQo0fOfRl_3xaLoT3djuU9:

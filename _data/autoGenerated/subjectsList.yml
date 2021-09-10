@@ -46,6 +46,8 @@
   semesters: "3"
 - title: "Теория групп"
   semesters: "3"
+- title: "Representation theory"
+  semesters: "5"
 - title: "Теория функций комплексного переменного"
   semesters: "5"
 - title: "Сложность вычислений"
