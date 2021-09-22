@@ -341,6 +341,11 @@
       title: Analytical_Geometry
     1iN96SY4WI_bkF4gIYG7PznCArJaBGpA5:
       children:
+        1QViKNziVGQ-j-bzmHXWChhLUMGKw6V2T:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1iN96SY4WI_bkF4gIYG7PznCArJaBGpA5
+          title: 2021_Raigorodsky_Musatov.pdf
         1jD15uJ2vpRlvdX6FuA6M06k2EZwqAHH0:
           kind: drive#file
           mimeType: application/pdf
