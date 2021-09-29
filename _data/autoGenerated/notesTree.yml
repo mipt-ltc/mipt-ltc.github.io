@@ -256,6 +256,17 @@
       mimeType: application/vnd.google-apps.folder
       parent: 1dYsbSBJjbLuKP4jHXyRzJMJMbjUUNBxR
       title: Algebra_and_Geometry
+    1EN_c66CTGcAkB88UiHPy5OJMzEmrls9B:
+      children:
+        1G6TGdMt8U4lVfSvVvH9kcZDP_d9gDjaG:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1EN_c66CTGcAkB88UiHPy5OJMzEmrls9B
+          title: 2021_Babichev.pdf
+      kind: drive#file
+      mimeType: application/vnd.google-apps.folder
+      parent: 1dYsbSBJjbLuKP4jHXyRzJMJMbjUUNBxR
+      title: Mathematical_Foundations_of_Algorithms
     1IjC9--ZqjuSYCV5S4Y9wpEshKnlcQ9ad:
       children:
         1HiQdYrtwBCOORP7ReTQpenEeHVKXHQNc:
