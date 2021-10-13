@@ -234,6 +234,17 @@
       mimeType: application/vnd.google-apps.folder
       parent: 1d2VNW_y0gnnOn-l2iWjdpe2ICeA_Ey-v
       title: Random_Processes
+    1ePLp561a211BFA4UTKY4ZoL2Wz99K3C3:
+      children:
+        1Bz-VvqOcUrJjxt5yeofqOu-AdqqybI3a:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1ePLp561a211BFA4UTKY4ZoL2Wz99K3C3
+          title: 2020-2021_Konovalov.pdf
+      kind: drive#file
+      mimeType: application/vnd.google-apps.folder
+      parent: 1d2VNW_y0gnnOn-l2iWjdpe2ICeA_Ey-v
+      title: Functional_Analysis
   kind: drive#file
   mimeType: application/vnd.google-apps.folder
   parent: 17tvogD2WnmudB-MqnAdxnNCC7CtZS-Gm
@@ -634,6 +645,17 @@
       mimeType: application/vnd.google-apps.folder
       parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
       title: Computational_Complexity
+    1_15Fme_4dLZBhD5BhhN5Gal5IiI3nc0J:
+      children:
+        1OJxnjCgQrivfS6m8TLT1qdRSErsDHD4P:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1_15Fme_4dLZBhD5BhhN5Gal5IiI3nc0J
+          title: 2020-2021_Konovalov.pdf
+      kind: drive#file
+      mimeType: application/vnd.google-apps.folder
+      parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
+      title: Functional_Analysis
     1uld-rwufF2u7zbI4YPD_BrEKzImZpz99:
       children:
         1MNNHSAPn5bMnRgImR2a1737Q89d_13JQ:

@@ -26,6 +26,8 @@
   semesters: "4"
 - title: "Случайные процессы"
   semesters: "6"
+- title: "Функциональный анализ"
+  semesters: "5,6"
 - title: "Mathematical foundations of algorithms"
   semesters: "1"
 - title: "Математическая логика"
