@@ -450,11 +450,6 @@
           mimeType: application/pdf
           parent: 1LZmH2MCHlejsDSrjdQ72CrIGhMoE0Gq2
           title: 2020_Lukashov-KI.pdf
-        133tpCkQeS50LS-O305KeBgPQOTxKnyop:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 1LZmH2MCHlejsDSrjdQ72CrIGhMoE0Gq2
-          title: "2020_\u041A\u0430\u0440\u0430\u0441\u0435\u0432.pdf"
         156gaIo0FMe4z66crvv5eaeAr8F4rgl2k:
           kind: drive#file
           mimeType: application/pdf
