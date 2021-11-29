@@ -1,7 +1,7 @@
 name: Updating Notes Database
 on: 
   schedule:
-    - cron: "0 0,11 * * *"
+    - cron: "0 0 * * *"
 
 
 jobs: 
