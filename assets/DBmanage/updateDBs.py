@@ -190,9 +190,7 @@ def extractOneName(aliasesStr):
     for name in aliases:
         if name[0] == '$':
             assert len(name) > 1 + MIN_TITLE_LENGTH
-            if name[1] == '#':
-                return name[2:].upper()
-            return name[1:].capitalize()
+            return name[1:]
         if hasCyrillic(name):
             return name.capitalize()
     assert len(aliases) > 0
