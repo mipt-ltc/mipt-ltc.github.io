@@ -34,8 +34,8 @@
 ## How to contribute
 
 ### Frontend
-1. Install or update your docker. 
-2. Run docker container with:
+1. Install or update your `Docker`. 
+2. Start docker container with:
   ```
   $ docker-compose up    # will take some time to download dependencies at first time, but then will run quickly.
   ```
