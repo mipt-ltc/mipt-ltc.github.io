@@ -240,7 +240,7 @@
           kind: drive#file
           mimeType: application/pdf
           parent: 1ePLp561a211BFA4UTKY4ZoL2Wz99K3C3
-          title: 2020-2021_Konovalov.pdf
+          title: 2020_Konovalov.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1d2VNW_y0gnnOn-l2iWjdpe2ICeA_Ey-v
@@ -524,7 +524,7 @@
           kind: drive#file
           mimeType: application/pdf
           parent: 1jTVb8dNQfVPbvNaD03u5y--tHlUdu_Mk
-          title: 2020_?.pdf
+          title: 2020_null.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1fg8k-3JQvfGpcOWeYiAoQeLM-3EY_Nqm
@@ -656,7 +656,7 @@
           kind: drive#file
           mimeType: application/pdf
           parent: 1_15Fme_4dLZBhD5BhhN5Gal5IiI3nc0J
-          title: 2020-2021_Konovalov.pdf
+          title: 2020_Konovalov.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1n9ppXfwtiw_qriASJflz5wficEHIVP8v
