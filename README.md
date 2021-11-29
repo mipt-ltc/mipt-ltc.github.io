@@ -39,7 +39,7 @@
    ```
    $ docker-compose up    # will take some time to download dependencies at first time, but then will run quickly.
    ```
-   After it is done, check the `localhost:4000` . Changed made in your folder will automatically (within few seconds) appear at the local webpage.
+   After it is done please check the `localhost:4000` . Changed made in your folder will automatically (within few seconds) appear at the local webpage.
 
 5. After you push changesin files (like `markdown` and `html`) GitHub Pages may need up to hour to fully deploy it.
 6. For adding `LaTeX` equations in your `markdown` and `html` you can check [upmath.me](https://upmath.me/).
