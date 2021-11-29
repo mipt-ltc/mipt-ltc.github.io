@@ -67,3 +67,8 @@ or
 ```
 $ make update # will just update based on current info from drive
 ```
+
+To make an update of names (when new notes with new names were added on the Google Drive) you can run:
+```
+$ make add    # will run an CLI, that allows to easily add new names
+```
