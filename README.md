@@ -35,19 +35,15 @@
 ## How to contribute
 
 ### Frontend
-1. Install or update your `ruby` and `gem`. (You can check if they installed with commands `$ ruby -v` and `$ gem -v`.)
-1. Run instructions from https://jekyllrb.com to install `Jekyll` :
-    ``` 
-    $ gem install bundler jekyll
-1.  Install `Jekyll` dependencies:
-    ``` 
-    $ git clone git@github.com:mipt-ltc/mipt-ltc.github.io.git
-    $ cd mipt-ltc.github.io.git
-    $ bundle install
-    ```
-1. You can start server with the command `$ bundle exec jekyll serve`
-1. After you push changesin files (like `markdown` and `html`) GitHub Pages may need up to hour to fully deploy it.
-1. For adding `LaTeX` equations in your `markdown` and `html` you can check [upmath.me](https://upmath.me/).
+1. Install or update your docker. 
+2. Run docker container with:
+  ```
+  $ docker-compose up    # will take some time to download dependencies at first time, but then will run quickly.
+  ```
+  After it is done, check the `localhost:4000` . Changed made in your folder will automatically (within few seconds) appear at the local webpage.
+5. After you push changesin files (like `markdown` and `html`) GitHub Pages may need up to hour to fully deploy it.
+6. For adding `LaTeX` equations in your `markdown` and `html` you can check [upmath.me](https://upmath.me/).
+
 ### Backend
 Install python dependencies with:
 ```
