@@ -5,7 +5,7 @@ all:
 update:
 	python3 updateDBs.py
 
-addNames:
+add:
 	python3 addNewNames.py
 	python3 updateDBs.py
 

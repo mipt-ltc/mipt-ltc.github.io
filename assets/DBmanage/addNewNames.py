@@ -19,7 +19,7 @@ def addNameInSet(name, namesSet):
     name = name.strip()
     if name == '':
         return
-    namesSet.add(name.lower())
+    namesSet.add(name)
     
 def getStandardizeAliasesStr(aliasesStr):
     aliases = aliasesStr.split('|')
@@ -142,7 +142,8 @@ def processNewNames(DBtype):
     for nameInfo in namesList:
         nameInfo['DBtype'] = DBtype
         nameInfo['simNamesInfo'] = getSimilarEntries(nameInfo)
-        processName(nameInfo)
+        if nameInfo['name'] != 'null':
+            processName(nameInfo)
 
 
 

@@ -101,7 +101,20 @@ def detectNewNames(namesSet):
         for name, occurrences in namesSet[dbKey].items():
             if getNameAliasesOrNull(name, DBs[dbKey]) == None:
                 newNames[dbKey][name] = occurrences
-                print('"' + name + '" is not in database.')
+                printNameNotInDBWarrning(name, occurrences)
+
+
+def printNameNotInDBWarrning(name, occurrences):
+    messageHeader = '"' + name + '" is not in database.\n'
+    messageBody = "Occurrences:\n"
+    for note in occurrences:
+        messageBody += '    path: ' + note['semester'] + '/' +\
+                note['subject'] + '/' + note['title'] + '\n' +\
+                '    url: ' + getNoteUrl(note['id']) + '\n'
+    messageFooter = "\n"
+    message = messageHeader + messageBody + messageFooter
+    print(message)
+    badNamedNotesAndSubjects.append(message)
 
 def getDatabase(fileName):
     with open(fileName, "r") as f:
@@ -119,7 +132,7 @@ def getDBs():
 def getNameAliasesOrNull(name, database):
     name = name.lower()
     for aliasesStr in database:
-        namesSet = set([delCommandSymbFromStr(name) for name in aliasesStr[1:-1].split('|')])
+        namesSet = set([delCommandSymbFromStr(name) for name in aliasesStr[1:-1].lower().split('|')])
         if name in namesSet:
             return aliasesStr
     return None
