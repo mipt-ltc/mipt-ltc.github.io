@@ -268,11 +268,6 @@
           mimeType: application/pdf
           parent: 13xHQPwDzsGgtOGCC3pi_lCoWaZYQvTqU
           title: "2013_\u0411\u043E\u0433\u0434\u0430\u043D\u043E\u0432.pdf"
-        1NwaHUJ2xG8FN8Wqnq8j1GM6eBANybMmS:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 13xHQPwDzsGgtOGCC3pi_lCoWaZYQvTqU
-          title: "2019_\u0411\u043E\u0433\u0434\u0430\u043D\u043E\u0432.pdf"
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1dYsbSBJjbLuKP4jHXyRzJMJMbjUUNBxR
@@ -370,7 +365,7 @@
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1dYsbSBJjbLuKP4jHXyRzJMJMbjUUNBxR
-      title: Analytical_Geometry
+      title: Analytic_Geometry
     1iN96SY4WI_bkF4gIYG7PznCArJaBGpA5:
       children:
         1QViKNziVGQ-j-bzmHXWChhLUMGKw6V2T:
@@ -459,7 +454,7 @@
           kind: drive#file
           mimeType: application/pdf
           parent: 1LZmH2MCHlejsDSrjdQ72CrIGhMoE0Gq2
-          title: 2020_Lukashov-KI.pdf
+          title: "2020_\u041B\u0443\u043A\u0430\u0448\u043E\u0432_1.pdf"
         156gaIo0FMe4z66crvv5eaeAr8F4rgl2k:
           kind: drive#file
           mimeType: application/pdf
@@ -470,17 +465,19 @@
           kind: drive#file
           mimeType: application/pdf
           parent: 1LZmH2MCHlejsDSrjdQ72CrIGhMoE0Gq2
-          title: 2017_Redkozubov.pdf
+          title: "2017_\u0420\u0435\u0434\u043A\u043E\u0437\u0443\u0431\u043E\u0432\
+            .pdf"
         16a7GSL15Xn2ak8KbWSXKJlxpP1OA89kx:
           kind: drive#file
           mimeType: application/pdf
           parent: 1LZmH2MCHlejsDSrjdQ72CrIGhMoE0Gq2
-          title: 2015_Redkozubov.pdf
+          title: "2015_\u0420\u0435\u0434\u043A\u043E\u0437\u0443\u0431\u043E\u0432\
+            .pdf"
         1e4JTdvcDjzsIBrxF94Qrm-U2W4sEtrF-:
           kind: drive#file
           mimeType: application/pdf
           parent: 1LZmH2MCHlejsDSrjdQ72CrIGhMoE0Gq2
-          title: 2020_Lukashov-DF.pdf
+          title: "2020_\u041B\u0443\u043A\u0430\u0448\u043E\u0432_2.pdf"
         1mJPiH9XlQfeSV-AUdVVtn1Fkizy6Zz_P:
           kind: drive#file
           mimeType: application/pdf
@@ -517,28 +514,6 @@
       mimeType: application/vnd.google-apps.folder
       parent: 1fg8k-3JQvfGpcOWeYiAoQeLM-3EY_Nqm
       title: Probability_and_Measure_Theory
-    1RgUMYFeiYpTHRpsadZ5GGgc0gy_PMml_:
-      children:
-        1QZErm0fsok1UoMZ4pAa51qRALFzUw7Eu:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 1RgUMYFeiYpTHRpsadZ5GGgc0gy_PMml_
-          title: 2020_Vialyi.pdf
-      kind: drive#file
-      mimeType: application/vnd.google-apps.folder
-      parent: 1fg8k-3JQvfGpcOWeYiAoQeLM-3EY_Nqm
-      title: Formal_Systems_and_Algorithms
-    1jTVb8dNQfVPbvNaD03u5y--tHlUdu_Mk:
-      children:
-        1Cj3AFarRju7q8fq5y_lBWpW9bcLzf0Dd:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 1jTVb8dNQfVPbvNaD03u5y--tHlUdu_Mk
-          title: 2020_Petuhov.pdf
-      kind: drive#file
-      mimeType: application/vnd.google-apps.folder
-      parent: 1fg8k-3JQvfGpcOWeYiAoQeLM-3EY_Nqm
-      title: General_Physics
     1lJFNLH8eivnq63hCOYS_C9pSQf_nPs2Z:
       children:
         19OPAxuDlkkOP-mxbfDH2uRFDLWkWEe41:
@@ -601,12 +576,12 @@
           kind: drive#file
           mimeType: application/pdf
           parent: 1vITCZiqIWVzYspgXqe0uftdSw01pcZXD
-          title: 2013_Beliayev.pdf
+          title: "2013_\u0411\u0435\u043B\u044F\u0435\u0432.pdf"
         1qA42BMwg3k8uQmNZFFyOeGExnZq8KclD:
           kind: drive#file
           mimeType: application/pdf
           parent: 1vITCZiqIWVzYspgXqe0uftdSw01pcZXD
-          title: 2015_Ivashchenko.pdf
+          title: 2015_?.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1fg8k-3JQvfGpcOWeYiAoQeLM-3EY_Nqm
