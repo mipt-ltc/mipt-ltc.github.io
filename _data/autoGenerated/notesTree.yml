@@ -157,35 +157,18 @@
       mimeType: application/vnd.google-apps.folder
       parent: 1PUUs_HjcU5-y72-aEF452dh8kAGAf8nE
       title: Calculus
-    1TSh150gvC0MD6KJ39UGcGALTE4n03rg5:
-      children:
-        1f4KymkOSM2miurb4QCDgQcsSntMCEt0v:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 1TSh150gvC0MD6KJ39UGcGALTE4n03rg5
-          title: 2021_Koldunov.pdf
-      kind: drive#file
-      mimeType: application/vnd.google-apps.folder
-      parent: 1PUUs_HjcU5-y72-aEF452dh8kAGAf8nE
-      title: General_Physics
     1UaZuCHzJaUjHZ_EYgP8_ORnXAWtgXxDt:
       children:
         17OUb_h8l1P-ws0jhHTWKDcZFEER5kHs0:
           kind: drive#file
           mimeType: application/pdf
           parent: 1UaZuCHzJaUjHZ_EYgP8_ORnXAWtgXxDt
-          title: 2017_Rodionov.pdf
-        194OfoP-4ddoNimgkLndGzl4pSYJWbCMM:
+          title: "2018_\u0420\u043E\u0434\u0438\u043E\u043D\u043E\u0432.pdf"
+        1VhaPpzLQ9l0yA-YgmLFUusuyhvNPTjL4:
           kind: drive#file
           mimeType: application/pdf
           parent: 1UaZuCHzJaUjHZ_EYgP8_ORnXAWtgXxDt
-          title: "2015_\u0420\u043E\u0434\u0438\u043E\u043D\u043E\u0432\u0416\u0443\
-            \u043A\u043E\u0432\u0441\u043A\u0438\u0439.pdf"
-        1wSlnYwYc2t_yPksHyLz_UWEODL2mt66H:
-          kind: drive#file
-          mimeType: application/pdf
-          parent: 1UaZuCHzJaUjHZ_EYgP8_ORnXAWtgXxDt
-          title: "2016_\u0416\u0443\u043A\u043E\u0432\u0441\u043A\u0438\u0439.pdf"
+          title: "2017_\u0416\u0443\u043A\u043E\u0432\u0441\u043A\u0438\u0439.pdf"
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1PUUs_HjcU5-y72-aEF452dh8kAGAf8nE
