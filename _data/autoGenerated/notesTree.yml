@@ -148,6 +148,11 @@
           parent: 1IwJ9StuG7R_E9U3PLWUxpgRDou-5qcAR
           title: "2020_\u0420\u0435\u0434\u043A\u043E\u0437\u0443\u0431\u043E\u0432\
             .pdf"
+        1Vxhmo1D0VBbzkqvKAfHl8wyAhOlOff0g:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1IwJ9StuG7R_E9U3PLWUxpgRDou-5qcAR
+          title: 2022_Redkozubov.pdf
         1hmelm4rvQGcAFgzHUK3zQwbitzU0ciwA:
           kind: drive#file
           mimeType: application/pdf
@@ -229,6 +234,11 @@
           mimeType: application/pdf
           parent: 1ePLp561a211BFA4UTKY4ZoL2Wz99K3C3
           title: 2020_Konovalov.pdf
+        1CQlez_pCL_cZnIAtpBcu7sgYAF00haVE:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1ePLp561a211BFA4UTKY4ZoL2Wz99K3C3
+          title: 2022_Konovalov.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1d2VNW_y0gnnOn-l2iWjdpe2ICeA_Ey-v
