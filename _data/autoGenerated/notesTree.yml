@@ -174,6 +174,11 @@
           mimeType: application/pdf
           parent: 1UaZuCHzJaUjHZ_EYgP8_ORnXAWtgXxDt
           title: "2017_\u0416\u0443\u043A\u043E\u0432\u0441\u043A\u0438\u0439.pdf"
+        1nzMm1Z7VwhYeHHk02sFaul5GhIjJNiz7:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1UaZuCHzJaUjHZ_EYgP8_ORnXAWtgXxDt
+          title: 2022_Zhukovsky.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1PUUs_HjcU5-y72-aEF452dh8kAGAf8nE
@@ -218,6 +223,11 @@
           mimeType: application/pdf
           parent: 1Y_2VtdyjLOGJiSnvhJ8I58hu0HzmRPIa
           title: 2021_Shabanov.pdf
+        1q-zXw_HwgaT2w_fYI-tciSPPd-E0xQM7:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1Y_2VtdyjLOGJiSnvhJ8I58hu0HzmRPIa
+          title: 2022_Shabanov.pdf
         1xGLX0vAbzLkscJa1b__b-gSNhzpGja60:
           kind: drive#file
           mimeType: application/pdf
