@@ -47,6 +47,11 @@
           mimeType: application/pdf
           parent: 1RvqDD4jpu6J8v2id0bCLYteC26SWJ_9a
           title: "2019_\u0421\u0430\u0432\u0440\u043E\u0432.pdf"
+        1A1j2EJhaZSjF69kVYBGyNdPKtGxyXTx1:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1RvqDD4jpu6J8v2id0bCLYteC26SWJ_9a
+          title: 2022_Koldunov.pdf
       kind: drive#file
       mimeType: application/vnd.google-apps.folder
       parent: 1HT0EeNHkL7Lo_j1cF3ix0WzZQOYMzttQ
@@ -67,6 +72,17 @@
       mimeType: application/vnd.google-apps.folder
       parent: 1HT0EeNHkL7Lo_j1cF3ix0WzZQOYMzttQ
       title: Algebra_and_Geometry
+    1UELMqsXnfZ0gKt74A2hGvME_GsyEmy8H:
+      children:
+        1E2NT9DcOdzeETZrwO5ZVWiJA6mHKP28Y:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 1UELMqsXnfZ0gKt74A2hGvME_GsyEmy8H
+          title: 2022_Raigorodsky.pdf
+      kind: drive#file
+      mimeType: application/vnd.google-apps.folder
+      parent: 1HT0EeNHkL7Lo_j1cF3ix0WzZQOYMzttQ
+      title: Combinatorics_and_Number_Theory
     1_fmmCriZNiL7Ed3wwukohaBDCYpF1LbE:
       children:
         1lxLOjIWO8S-KicuXm_IrhwQzhZMrfZFG:
