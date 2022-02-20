@@ -29,6 +29,17 @@
       mimeType: application/vnd.google-apps.folder
       parent: 1HT0EeNHkL7Lo_j1cF3ix0WzZQOYMzttQ
       title: Linear_Algebra
+    149Tfzws146cy4fhFLwYojJagr_PCkyu3:
+      children:
+        1MPoCXxJ77tXEA4E2ImiK9h7pKv79nJJc:
+          kind: drive#file
+          mimeType: application/pdf
+          parent: 149Tfzws146cy4fhFLwYojJagr_PCkyu3
+          title: 2022_Balitskiy.pdf
+      kind: drive#file
+      mimeType: application/vnd.google-apps.folder
+      parent: 1HT0EeNHkL7Lo_j1cF3ix0WzZQOYMzttQ
+      title: Algebraic_Combinatorics
     1JPdYZyGcKnTX00RwVMQc1JvW7Cvn0ObQ:
       children:
         1baSTldAVQW_cS3fCDPq9VL2noYX8Q35M:
